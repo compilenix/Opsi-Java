@@ -1,0 +1,131 @@
+[Initial]
+SetLogLevel = 6
+ExitOnError = True
+ScriptErrorMessages = Off
+TraceMode = Off
+StayOnTop = False
+
+[Actions]
+RequiredWinstVersion >= "4.11.3"
+Message "Prepare..."
+DefStringList $StringList_Java6$
+DefStringList $StringList_Java7$
+DefStringList $StringList_Java8$
+DefVar $Argument_Msi_AutoUpdateCheck$
+DefVar $Argument_Msi_IExplorer$
+DefVar $Argument_Msi_Ju$
+DefVar $Argument_Msi_Mozilla$
+DefVar $Argument_Msi_SysTray$
+DefVar $Arguments_Exe$
+DefVar $Arguments_Msi$
+DefVar $DefaultLogLevel$
+DefVar $IsUninstall$
+DefVar $MicrosoftWindowsVersion$
+DefVar $MinimumSpace$
+DefVar $PathSetup_Data$
+DefVar $PathSetup_Exe32$
+DefVar $PathSetup_Exe64$
+DefVar $PathSetup_Msi32$
+DefVar $ProcessorArchitecture$
+DefVar $ProductDisplayName$
+DefVar $ProductDisplayVersion$
+DefVar $ProductDisplayVersion_x32$
+DefVar $ProductDisplayVersion_x64$
+DefVar $ProductName$
+DefVar $ProductProperty_Java-Updater$
+DefVar $ProductProperty_Version$
+DefVar $ProductProperty_VM-Type$
+DefVar $ProductProperty_WebJava$
+DefVar $ProductProperty_WebJava-Security_Level$
+DefVar $ProductProperty_32bitOnly$
+DefVar $ProductProperty_PatchJCE$
+DefVar $ProductVersion$
+DefVar $RegistryPath$
+DefVar $RegistryPath_x64$
+DefVar $Temp_ExitCode$
+DefVar $Temp_Message$
+DefVar $Temp_MicrosoftWindowsVersionRequired$
+DefVar $Temp_MicrosoftWindowsVersionRequiredName$
+DefVar $Temp_Msi$
+DefVar $Temp_MsiSuffix$
+DefVar $Temp_MsiDiff01$
+DefVar $UninstallCommand$
+DefVar $UpdateVersion8$
+
+Set $ProductName$ = "Java"
+
+; https://en.wikipedia.org/wiki/Java_version_history#Java_6_updates
+Set $StringList_Java6$ = CreateStringList ( '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '43', '45', '51', '65', '71', '75', '81', '85', '91' )
+
+; https://en.wikipedia.org/wiki/Java_version_history#Java_7_updates
+Set $StringList_Java7$ = CreateStringList ( '00', '01', '02', '03', '04', '05', '06', '07', '09', '10', '11', '13', '15', '17', '21', '25', '40', '45', '51', '55', '60', '65', '67', '71', '72', '75', '76' )
+
+; https://en.wikipedia.org/wiki/Java_version_history#Java_8_updates
+Set $StringList_Java8$ = CreateStringList ( '00', '05', '11', '20', '25', '31', '40' )
+
+; Get last update version
+Set $UpdateVersion8$ = TakeString ( -1, $StringList_Java8$ )
+
+Set $DefaultLogLevel$ = "6"
+Set $IsUninstall$ = "False"
+Set $MicrosoftWindowsVersion$ = GetMsVersionInfo
+Set $MinimumSpace$ = "1 GB"
+Set $PathSetup_Data$ = "%ScriptPath%\setup_data\"
+Set $ProcessorArchitecture$ = GetSystemType
+Set $ProductProperty_Version$ = "8"
+Set $ProductProperty_Java-Updater$ = GetProductProperty ( "Java-Updater" , "Off" )
+Set $ProductProperty_VM-Type$ = GetProductProperty ( "VM-Type" , "jdk" )
+Set $ProductProperty_WebJava$ = GetProductProperty ( "WebJava" , "On" )
+Set $ProductProperty_PatchJCE$ = GetProductProperty ( "PatchJCE" , "On" )
+Set $ProductProperty_WebJava-Security_Level$ = GetProductProperty ( "WebJava-Security_Level" , "VH" )
+Set $ProductProperty_32bitOnly$ = GetProductProperty ( "32bitOnly" , "False" )
+Set $RegistryPath$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\"
+Set $RegistryPath_x64$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\"
+Set $Temp_MsiSuffix$ = ""
+
+; Reset changed variables
+Sub "%ScriptPath%\Sub_UpdateVariables.ins"
+
+; Parse selected ProductPropertys and generate installation argument list
+If $ProductProperty_WebJava$ = "On"
+	Set $ProductProperty_WebJava$ = "WEB_JAVA=1"
+	Set $Argument_Msi_IExplorer$ = "IEXPLORER=1"
+	Set $Argument_Msi_Mozilla$ = "MOZILLA=1"
+Else
+	Set $ProductProperty_WebJava$ = "WEB_JAVA=0"
+	Set $Argument_Msi_IExplorer$ = "IEXPLORER=0"
+	Set $Argument_Msi_Mozilla$ = "MOZILLA=0"
+EndIf
+
+If $ProductProperty_WebJava-Security_Level$ = "M"
+	Set $ProductProperty_WebJava-Security_Level$ = "WEB_JAVA_SECURITY_LEVEL=M"
+EndIf
+If $ProductProperty_WebJava-Security_Level$ = "H"
+	Set $ProductProperty_WebJava-Security_Level$ = "WEB_JAVA_SECURITY_LEVEL=H"
+EndIf
+If $ProductProperty_WebJava-Security_Level$ = "VH"
+	Set $ProductProperty_WebJava-Security_Level$ = "WEB_JAVA_SECURITY_LEVEL=VH"
+EndIf
+
+If $ProductProperty_Java-Updater$ = "On"
+	Set $Argument_Msi_SysTray$ = "SYSTRAY=1"
+	Set $ProductProperty_Java-Updater$ = "JAVAUPDATE=1"
+	Set $Argument_Msi_Ju$ = "JU=1"
+	Set $Argument_Msi_AutoUpdateCheck$ = "AUTOUPDATECHECK=1"
+Else
+	Set $Argument_Msi_SysTray$ = "SYSTRAY=0"
+	Set $ProductProperty_Java-Updater$ = "JAVAUPDATE=0"
+	Set $Argument_Msi_Ju$ = "JU=0"
+	Set $Argument_Msi_AutoUpdateCheck$ = "AUTOUPDATECHECK=0"
+EndIf
+
+Set $Arguments_Exe$ = "/s " + $ProductProperty_WebJava$ + " " + $ProductProperty_WebJava-Security_Level$ + " STATIC=0"
+Set $Arguments_Msi$ = "/qb! REBOOT=ReallySuppess " + $Argument_Msi_IExplorer$ + " " + $Argument_Msi_Mozilla$ + " " + $Argument_Msi_SysTray$ + " " + $ProductProperty_Java-Updater$ + " " + $Argument_Msi_Ju$ + " " + $Argument_Msi_AutoUpdateCheck$
+
+ShowBitMap "%ScriptPath%\java.png" $ProductName$
+SetLogLevel = $DefaultLogLevel$
+
+Sub "%ScriptPath%\check_uninstall.ins"
+
+Message "Uninstall complete"
+

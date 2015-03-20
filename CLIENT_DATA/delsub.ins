@@ -1,0 +1,22 @@
+Set $UninstallCommand$ = 'msiexec.exe /X ' + $Temp_Msi$ + ' /qb! REBOOT=ReallySuppress'
+
+KillTask "firefox.exe"
+KillTask "iexplore.exe"
+KillTask "chrome.exe"
+KillTask "opera.exe"
+KillTask "jqs.exe"
+KillTask "java.exe"
+KillTask "javaw.exe"
+
+SetLogLevel = 6
+Message "Uninstall " + $ProductDisplayName$
+; Set Timeout in case of an hangup while deinstalling (5 Minutes)
+WinBatch_Uninstall /TimeOutSeconds 500
+SetLogLevel = 1
+Sub "%ScriptPath%\check_msi-exitcode.ins"
+SetLogLevel = 1
+
+Message "Uninstall " + $ProductName$ + " done"
+
+[WinBatch_Uninstall]
+$UninstallCommand$

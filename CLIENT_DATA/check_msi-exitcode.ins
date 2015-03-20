@@ -1,0 +1,405 @@
+SetLogLevel = 1
+Set $Temp_ExitCode$ = GetLastExitCode
+Set $Temp_Message$ = ""
+
+If ( $Temp_ExitCode$ = "0" Or $Temp_ExitCode$ ="1641" Or $Temp_ExitCode$ ="3010" )
+	If ( $Temp_ExitCode$ = "0" )
+		SetLogLevel = 5
+		Comment ": " + $Temp_ExitCode$ + " Action completed successfully."
+		SetLogLevel = 1
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1641" )
+		SetLogLevel = 5
+		Comment ": " + $Temp_ExitCode$ + " ERROR_SUCCESS_REBOOT_INITIATED The installer has started a reboot. This error code Not available on Windows Installer version 1.0."
+		SetLogLevel = 1
+	EndIf
+
+	If ( $Temp_ExitCode$ = "3010" )
+		SetLogLevel = 5
+		Comment ": " + $Temp_ExitCode$ + " ERROR_SUCCESS_REBOOT_REQUIRED A reboot is required to complete the install. This does Not include installs where the ForceReboot action is run. This error code Not available on Windows Installer version 1.0."
+		SetLogLevel = 1
+	EndIf
+
+
+Else
+
+
+	If ( $Temp_ExitCode$ = "3" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_UNKNOWN Unknown unknown."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "13" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INVALID_DATA The data is invalid."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "87" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INVALID_PARAMETER One of the parameters was invalid."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "120" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_CALL_NOT_IMPLEMENTED This function is Not available For this platform. It is only available on Windows 2000 And Windows XP with Window Installer version 2.0."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1259" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_APPHELP_BLOCK This error code only occurs when using Windows Installer version 2.0 And Windows XP Or later. If Windows Installer determines a product may be incompatible with the current operating system, it displays a dialog informing the user And asking whether to try to install anyway. This error code is returned If the user chooses Not to try the installation."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1601" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_SERVICE_FAILURE The Windows Installer service could Not be accessed. Contact your support personnel to verify that the Windows Installer service is properly registered."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1602" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_USEREXIT User cancel installation."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1603" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_FAILURE Fatal error during installation."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1604" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_SUSPEND Installation suspended, incomplete."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1605" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_UNKNOWN_PRODUCT This action is only valid For products that are currently installed."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1606" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_UNKNOWN_FEATURE Feature ID Not registered."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1607" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_UNKNOWN_COMPONENT Component ID Not registered."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1608" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_UNKNOWN_PROPERTY Unknown property."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1609" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INVALID_HANDLE_STATE Handle is In an invalid state."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1610" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_BAD_CONFIGURATION The configuration data For this product is corrupt. Contact your support personnel."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1611" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INDEX_ABSENT Component qualifier Not present."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1612" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_SOURCE_ABSENT The installation source For this product is Not available. Verify that the source exists And that you can access it."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1613" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_PACKAGE_VERSION This installation package cannot be installed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1614" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_PRODUCT_UNINSTALLED Product is uninstalled."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1615" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_BAD_QUERY_SYNTAX SQL query syntax invalid Or unsupported."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1616" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INVALID_FIELD Record field does Not exist."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1618" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_ALREADY_RUNNING Another installation is already In progress. Complete that installation before proceeding with this install."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1619" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_PACKAGE_OPEN_FAILED This installation package could Not be opened. Verify that the package exists And that you can access it, Or contact the application vendor to verify that this is a valid Windows Installer package."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1620" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_PACKAGE_INVALID This installation package could Not be opened. Contact the application vendor to verify that this is a valid Windows Installer package."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1621" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_UI_FAILURE There was an error starting the Windows Installer service user interface. Contact your support personnel."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1622" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_LOG_FAILURE Error opening installation log file. Verify that the specified log file location exists And is writable."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1623" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_LANGUAGE_UNSUPPORTED This language of this installation package is Not supported by your system."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1624" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_TRANSFORM_FAILURE Error applying transforms. Verify that the specified transform paths are valid."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1625" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_PACKAGE_REJECTED This installation is forbidden by system policy. Contact your system administrator."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1626" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_FUNCTION_NOT_CALLED Function could Not be executed."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1627" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_FUNCTION_FAILED Function failed during execution."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1628" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INVALID_TABLE Invalid Or unknown table specified."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1629" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_DATATYPE_MISMATCH Data supplied is of wrong type."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1630" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_UNSUPPORTED_TYPE Data of this type is Not supported."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1631" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_CREATE_FAILED The Windows Installer service failed to start. Contact your support personnel."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1632" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_TEMP_UNWRITABLE The temp folder is either full Or inaccessible. Verify that the temp folder exists And that you can write to it."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1633" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_PLATFORM_UNSUPPORTED This installation package is Not supported on this platform. Contact your application vendor."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1634" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_NOTUSED Component Not used on this machine"
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1635" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_PATCH_PACKAGE_OPEN_FAILED This patch package could Not be opened. Verify that the patch package exists And that you can access it, Or contact the application vendor to verify that this is a valid Windows Installer patch package."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1636" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_PATCH_PACKAGE_INVALID This patch package could Not be opened. Contact the application vendor to verify that this is a valid Windows Installer patch package."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1637" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_PATCH_PACKAGE_UNSUPPORTED This patch package cannot be processed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1638" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_PRODUCT_VERSION Another version of this product is already installed. Installation of this version cannot continue. To configure Or remove the existing version of this product, use Add/Remove Programs on the Control Panel."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1639" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INVALID_COMMAND_LINE Invalid command line argument. Consult the Windows Installer SDK For detailed command line help."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1640" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_REMOTE_DISALLOWED Installation from a Terminal Server client session Not permitted For current user."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1642" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_PATCH_TARGET_NOT_FOUND The installer cannot install the upgrade patch because the program being upgraded may be missing Or the upgrade patch updates a different version of the program. Verify that the program to be upgraded exists on your computer And that you have the correct upgrade patch. This error code is Not available on Windows Installer version 1.0."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1643" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_PATCH_PACKAGE_REJECTED The patch package is Not permitted by system policy. This error code is available with Windows Installer versions 2.0 Or later."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+
+	If ( $Temp_ExitCode$ = "1644" )
+		SetLogLevel = 5
+		Set $Temp_Message$ = ": " + $Temp_ExitCode$ + " ERROR_INSTALL_TRANSFORM_REJECTED One Or more customizations are Not permitted by system policy. This error code is available with Windows Installer versions 2.0 Or later."
+		Message "Fatal error: " + $Temp_Message$
+		LogError $Temp_Message$
+		IsFatalError $Temp_Message$
+	EndIf
+EndIf
+
+SetLogLevel = $DefaultLogLevel$

@@ -1,0 +1,6 @@
+*.sublime-project
+*.sublime-workspace
+*.exe
+*.cab
+*.msi
+CLIENT_DATA/UnlimitedJCEPolicy/*.jar

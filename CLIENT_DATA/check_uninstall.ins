@@ -1,0 +1,203 @@
+SetLogLevel = 2
+
+For $x$ In $StringList_Java6$ Do Sub_Uninstall_6
+For $x$ In $StringList_Java7$ Do Sub_Uninstall_7
+For $x$ In $StringList_Java8$ Do Sub_Uninstall_8
+
+SetLogLevel = $DefaultLogLevel$
+
+; Reset changed variables
+Sub "%ScriptPath%\Sub_UpdateVariables.ins"
+
+[Sub_Uninstall_6]
+Message "Search Java 6.0.$x$ x32"
+If $ProcessorArchitecture$ = "x86 System"
+	If ( "$x$" > "24" )
+		Set $Temp_MsiSuffix$ = "FF"
+	Else
+		Set $Temp_MsiSuffix$ = "F0"
+	EndIf
+
+	Set $ProductDisplayName$ = GetRegistryStringValue ( "[" + $RegistryPath$ + "{26A24AE4-039D-4CA4-87B4-2F832160" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F832160" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+If $ProcessorArchitecture$ = "64 Bit System"
+	If ( "$x$" > "23" )
+		Set $Temp_MsiSuffix$ = "FF"
+	Else
+		Set $Temp_MsiSuffix$ = "F0"
+	EndIf
+
+	Set $ProductDisplayName$ = GetRegistryStringValue32 ( "[" + $RegistryPath_x64$ + "{26A24AE4-039D-4CA4-87B4-2F832160" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F832160" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+
+	If ( "$x$" > "24" )
+		Set $Temp_MsiSuffix$ = "FF"
+	Else
+		Set $Temp_MsiSuffix$ = "F0"
+	EndIf
+
+	Message "Search Java 6.0.$x$ x64"
+	Set $ProductDisplayName$ = GetRegistryStringValue64 ( "[" + $RegistryPath$ + "{26A24AE4-039D-4CA4-87B4-2F864160" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F864160" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+
+
+
+[Sub_Uninstall_7]
+
+If ( "$x$" > "23" )
+	Set $Temp_MsiSuffix$ = "FF"
+Else
+	Set $Temp_MsiSuffix$ = "F0"
+EndIf
+
+; It Seems this one does only affect Java 7 JRE x64 and x86
+If ( "$x$" >= "60" )
+	Set $Temp_MsiDiff01$ = "0"
+Else
+	Set $Temp_MsiDiff01$ = "8"
+EndIf
+
+
+Message "Search Java JDK 7.0.$x$ x32"
+If $ProcessorArchitecture$ = "x86 System"
+	Set $ProductDisplayName$ = GetRegistryStringValue ( "[" + $RegistryPath$ + "{32A3A4F4-B792-11D6-A78A-00B0D0170$x$0}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{32A3A4F4-B792-11D6-A78A-00B0D0170$x$0}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+If $ProcessorArchitecture$ = "64 Bit System"
+	Set $ProductDisplayName$ = GetRegistryStringValue32 ( "[" + $RegistryPath_x64$ + "{32A3A4F4-B792-11D6-A78A-00B0D0170$x$0}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{32A3A4F4-B792-11D6-A78A-00B0D0170$x$0}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+
+	Message "Search Java JDK 7.0.$x$ x64"
+	Set $ProductDisplayName$ = GetRegistryStringValue64 ( "[" + $RegistryPath$ + "{64A3A4F4-B792-11D6-A78A-00B0D0170$x$0}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{64A3A4F4-B792-11D6-A78A-00B0D0170$x$0}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+
+Message "Search Java JRE 7.0.$x$ x32"
+If $ProcessorArchitecture$ = "x86 System"
+	Set $ProductDisplayName$ = GetRegistryStringValue ( "[" + $RegistryPath$ + "{26A24AE4-039D-4CA4-87B4-2F" + $Temp_MsiDiff01$ + "32170" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F" + $Temp_MsiDiff01$ + "32170" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+If $ProcessorArchitecture$ = "64 Bit System"
+	Set $ProductDisplayName$ = GetRegistryStringValue32 ( "[" + $RegistryPath_x64$ + "{26A24AE4-039D-4CA4-87B4-2F" + $Temp_MsiDiff01$ + "32170" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F" + $Temp_MsiDiff01$ + "32170" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+
+	Message "Search Java 7.0.$x$ x64"
+	Set $ProductDisplayName$ = GetRegistryStringValue64 ( "[" + $RegistryPath$ + "{26A24AE4-039D-4CA4-87B4-2F" + $Temp_MsiDiff01$ + "64170" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F" + $Temp_MsiDiff01$ + "64170" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+
+
+
+[Sub_Uninstall_8]
+
+; TODO check on every update
+If ( "$x$" >= "00" )
+	Set $Temp_MsiSuffix$ = "FF"
+Else
+	Set $Temp_MsiSuffix$ = "F0"
+EndIf
+
+Message "Search Java JDK 8.0.$x$ x32"
+If $ProcessorArchitecture$ = "x86 System"
+	Set $ProductDisplayName$ = GetRegistryStringValue ( "[" + $RegistryPath$ + "{32A3A4F4-B792-11D6-A78A-00B0D0180$x$0}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{32A3A4F4-B792-11D6-A78A-00B0D0180$x$0}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+If $ProcessorArchitecture$ = "64 Bit System"
+	Set $ProductDisplayName$ = GetRegistryStringValue32 ( "[" + $RegistryPath_x64$ +  "{32A3A4F4-B792-11D6-A78A-00B0D0180$x$0}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{32A3A4F4-B792-11D6-A78A-00B0D0180$x$0}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+
+	Message "Search Java JDK 8.0.$x$ x64"
+	Set $ProductDisplayName$ = GetRegistryStringValue64 ( "[" + $RegistryPath$ + "{64A3A4F4-B792-11D6-A78A-00B0D0180$x$0}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{64A3A4F4-B792-11D6-A78A-00B0D0180$x$0}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+; TODO check on every update
+If ( "$x$" < "25" )
+	Set $Temp_MsiSuffix$ = "FF"
+Else
+	Set $Temp_MsiSuffix$ = "F0"
+EndIf
+
+Message "Search Java JRE 8.0.$x$ x32"
+If $ProcessorArchitecture$ = "x86 System"
+	Set $ProductDisplayName$ = GetRegistryStringValue ( "[" + $RegistryPath$ + "{26A24AE4-039D-4CA4-87B4-2F832180" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+			Message "Uninstall " + $ProductDisplayName$ + "..."
+			Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F832180" + "$x$" + $Temp_MsiSuffix$ + "}"
+			Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf
+
+If $ProcessorArchitecture$ = "64 Bit System"
+	Set $ProductDisplayName$ = GetRegistryStringValue32 ( "[" + $RegistryPath_x64$ + "{26A24AE4-039D-4CA4-87B4-2F832180" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F832180" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+
+	Message "Search Java JRE 8.0.$x$ x64"
+	Set $ProductDisplayName$ = GetRegistryStringValue64 ( "[" + $RegistryPath$ + "{26A24AE4-039D-4CA4-87B4-2F864180" + "$x$" + $Temp_MsiSuffix$ + "}] DisplayName" )
+	If Not ( $ProductDisplayName$ = "" )
+		Message "Uninstall " + $ProductDisplayName$ + "..."
+		Set $Temp_Msi$ = "{26A24AE4-039D-4CA4-87B4-2F864180" + "$x$" + $Temp_MsiSuffix$ + "}"
+		Sub "%ScriptPath%\delsub.ins"
+	EndIf
+EndIf

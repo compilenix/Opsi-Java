@@ -1,0 +1,8 @@
+Set $ProductDisplayVersion$ = $ProductProperty_Version$ + "u" + $UpdateVersion8$
+Set $ProductVersion$ = "1." + $ProductProperty_Version$ + ".0_" + $UpdateVersion8$
+Set $PathSetup_Msi32$ = "msi\" + $ProductProperty_VM-Type$ + $ProductVersion$ + "\" + $ProductProperty_VM-Type$ + $ProductVersion$ + ".msi"
+Set $PathSetup_Exe32$ = $ProductProperty_VM-Type$ + "-" + $ProductDisplayVersion$ + "-windows-i586.exe"
+Set $PathSetup_Exe64$ = $ProductProperty_VM-Type$ + "-" + $ProductDisplayVersion$ + "-windows-x64.exe"
+Set $ProductDisplayName$ = $ProductName$ + " " + $ProductDisplayVersion$
+Set $ProductDisplayVersion_x32$ = $ProductDisplayName$ + " " + $ProductProperty_VM-Type$ + " x32"
+Set $ProductDisplayVersion_x64$ = $ProductDisplayName$ + " " + $ProductProperty_VM-Type$ + " x64"
