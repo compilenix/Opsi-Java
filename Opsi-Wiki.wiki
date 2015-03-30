@@ -1,0 +1,303 @@
+====== Java (java_1.8.0.40.26-4.2.3) ======
+**Feel free to contact me :)**
+
+Tested with Opsi 4.0.5.15\\
+Tested with 8.1 Pro x64\\
+Tested with Java 6u10 - 8u40\\
+requiredWinstVersion >= 4.11.3\\
+By <Compilenix@compilenix.org> 2015-03-20\\
+
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.opsi | All in one - installable opsi package (~ 850 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.opsi.asc | (detached pgp signature)]]
+
+For an altanative, you can download only the parts you want;\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3_script.opsi.7z | Without setup binary´s (~ 28 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3_script.opsi.7z.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.7z | Setup binary´s only - Java 8 (~ 830 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.7z.asc | (detached pgp signature)]]\\
+
+Check if you have the JCE extrension installed: [[http://compilenix.org/public/opsi/jceCheck.jar | jceCheck.jar]] [[http://compilenix.org/public/opsi/jceCheck.jar.asc | (detached pgp signature)]]\\
+
+All downloads are pgp signed with:\\
+Compilenix <Compilenix@compilenix.org>\\
+Validity: from 2015-01-09 11:29 through 2016-01-09 11:29\\
+Certificate type: 4,096-bit RSA\\
+Key-ID: E763633D\\
+Fingerprint: CC6047FA5B4449F28940636910B6666EE763633D\\
+http://compilenix.org/public/certificates/pgp/compilenix%40compilenix.org%20%280xE763633D%29.asc
+
+Download: my [[http://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]
+
+<code>
+Tree:
+│   jceCheck.jar
+│
+├───CLIENT_DATA
+│   │   java.png
+│   │   uninstall.ins
+│   │   Sub_UpdateVariables.ins
+│   │   setup.ins
+│   │   check_msi-exitcode.ins
+│   │   check_uninstall.ins
+│   │   delsub.ins
+│   │
+│   ├───UnlimitedJCEPolicy
+│   │       local_policy.jar
+│   │       JCE_PATCHED
+│   │       README.txt
+│   │       US_export_policy.jar
+│   │
+│   └───setup_data
+│       │   jdk-8u40-windows-i586.exe
+│       │   License.txt
+│       │   jre-8u40-windows-x64.exe
+│       │   jdk-8u40-windows-x64.exe
+│       │   jre-8u40-windows-i586.exe
+│       │   License.url
+│       │
+│       └───msi
+│           ├───jre1.8.0_40_x64
+│           │       jre1.8.0_40.msi
+│           │
+│           ├───jdk1.8.0_40_x64
+│           │       jdk1.8.0_40.msi
+│           │       sz180400.cab
+│           │       st180400.cab
+│           │       sj180400.cab
+│           │       ss180400.cab
+│           │
+│           ├───jre1.8.0_40
+│           │       jre1.8.0_40.msi
+│           │
+│           └───jdk1.8.0_40
+│                   jdk1.8.0_40.msi
+│                   sz180400.cab
+│                   st180400.cab
+│                   sj180400.cab
+│                   ss180400.cab
+│
+└───OPSI
+        preinst
+        postinst
+        control
+</code>
+
+==== What is does, and what not ====
+ It Does:
+  - Handle install: x64 and x86, JRE and JDK
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.40, JDK of Java 1.7.0.0 until 1.8.0.40
+  - Installation of Java 8
+  - Add the JCE Patch to every Java installation; see: [[http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
+  - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
+
+ It Does NOT:
+  - Uninstall Java versions older then 1.6.0.10, because in update 10 was a new installer dropped which uses an other schema of GUID´s at the Windows Registry
+  - Uninstall Java JDK`s older then 1.7.0.0
+
+==== Notes ====
+The package includes the MSI installer for the JRE and JDK x86, because if you want to install Java JRE/JDK x86 on a x64 System the EXE installer will "crash" if it was called in a SYSTEM user context. Calling it by hand will work and my package is designed to manage both cases.
+
+It "crashes" in a SYSTEM user environment, because the x86 installer of Java would exteact a MSI package on a x86 System into "C:\Windows\**System32**\config\systemprofile\AppData\LocalLow\Sun\Java" and call a MSI file and will install Java.\\
+But on a x64 System the Java installer want to extract the MSI package into the same directory. At this point Windows (x64) redirect the request to "C:\Windows\**SysWOW64**\config\systemprofile\AppData\LocalLow\Sun\Java". The x86 Java installer does NOT notice the important redirect and still try to call the MSI file and explode with a, File not found, exeption.
+
+There is no error-reporting or handling by the Java (EXE) installer done, but msiexec.exe does report an 1619 (PACKAGE_OPEN_FAILED) exitcode.\\
+
+This happends only on x64 System`s. My package will ever prefer of using the EXE installer, the MSI files were only called in a fallback case!\\
+
+==== Change Log ====
+<code>
+java (1.8.0.40.26-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-03-19
+  * fixed: installation of Java JRE x86 on a x64 OS does not work (exit code 3)
+</code>
+
+==== TODO ====
+  - Add feature; Install X.509 (root) Certificates into the Java Certificate chain.
+  - Change uninstall procedure using WMCI or Powershell, to avoid generating wrong uninstall strings. (Thanks Andreas)
+  - Nothing else at the moment.. If you have any suggestions, let me know :)
+
+===== control =====
+<code winst control.txt>
+[Package]
+version: 4.2.3
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: java
+name: Java
+description: 
+advice: Tested with Opsi 4.0.5.15 and on Win 8.1 Pro
+version: 1.8.0.40.26
+priority: -95
+licenseRequired: False
+productClasses: 
+setupScript: setup.ins
+uninstallScript: uninstall.ins
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+[ProductProperty]
+type: unicode
+name: vm-type
+multivalue: False
+editable: False
+description: Install the Development Kit (JDK) or just the Java Runtime (JRE).
+values: ["jdk", "jre"]
+default: ["jre"]
+
+[ProductProperty]
+type: unicode
+name: patchjce
+multivalue: False
+editable: False
+description: Apply patch For JCE (Java Cryptography Extension); see also: https://en.wikipedia.org/wiki/Java_Cryptography_Extension
+values: ["Off", "On"]
+default: ["On"]
+
+[ProductProperty]
+type: unicode
+name: webjava
+multivalue: False
+editable: False
+description: Install Webplugins.
+values: ["Off", "On"]
+default: ["On"]
+
+[ProductProperty]
+type: unicode
+name: webjava-security_level
+multivalue: False
+editable: False
+description: Set default security level, for remote execution of Java content.
+values: ["H", "M", "VH"]
+default: ["VH"]
+
+[ProductProperty]
+type: unicode
+name: java-updater
+multivalue: False
+editable: False
+description: Toggle the Java-Updater and Update-Notifications.
+values: ["Off", "On"]
+default: ["Off"]
+
+[ProductProperty]
+type: unicode
+name: 32bitonly
+multivalue: False
+editable: False
+description: Toggle if on a 64bit OS only the 32bit JRE/JDK will be installed.
+values: ["False", "True"]
+default: ["False"]
+
+[Changelog]
+java (1.8.0.40.26-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-03-19
+  * fixed: installation of Java JRE x86 on a x64 OS does not work (exit code 3)
+
+java (1.8.0.40.26-4.2.2)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-03-16
+  * update
+
+java (1.8.0.31.13-4.2.2)
+  -- Kevin Weis <kevinweis@gmx.de> 2015-01-21
+  * update
+
+java (1.8.0.25.18-4.2.2)
+  -- Kevin Weis <kevinweis@gmx.de> 2014-10-20
+  * update
+  * add ProductProperty "PatchJCE"; see also: https://en.wikipedia.org/wiki/Java_Cryptography_Extension and http://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html
+  * Java 7 setup support droped (uninstalling of future Java 7 versions are still supported)
+
+java (1.8.0.11.12-4.2.1)
+  -- Kevin Weis <kevinweis@gmx.de> 2014-08-14
+  * update; Java 1.0.7.65 build 19 to 1.0.7.67 build 1
+
+
+java (1.8.0.11.12-4.2)
+  -- Kevin Weis <kevinweis@gmx.de> 2014-07-21
+  * update; Java 1.0.7.60 build 19 to 1.0.7.65 build 19
+
+
+java (1.8.0.05.13-4.2)
+  -- Kevin Weis <kevinweis@gmx.de> 2014-06-14
+  * update; Java 1.0.7.55 to 1.0.7.60 build 19
+  * add ProductProperty "32bitOnly". The functionality of this option will be extended with the next Java 8 update.
+  * since this update (Java 7u60 JRE x64/x86) the MSI-GUID has changed at one charcter (from "8" to "0"), no idea why -> ask Oracle -.- (see "check_uninstall.ins" from line 69 - 74)
+  Minor changes:
+    * add killing Opera.exe, before in-/uninstall.
+    * little Bug-fix which caused an installation abort with the (expected at this point) error code 1619.
+
+
+java (1.8.0.05.13-4.1) urgency=high
+  -- Kevin Weis <kevin.weis@faw.de> 2014-04-17
+  * update
+  * add JRE and JDK of Java 7 (ProductProperty "Version")
+  * add discriptions to all ProductPropertys
+  * change default of ProductProperty "VM-Type" from "jdk" to "jre" (if winst script is called by hand "jdk" is the default)
+  * change default of ProductProperty "WebJava-Security_Level" from "M" to "VH"
+  * NOTE: I´m using the JCE patch for Java 8, this work for Java 7 too (tested, no unwanted behaviour with SHA384, SHA512, AES192 and AES256)
+  Minor changes:
+    * Apply new variables nomination
+    * Fix check for minnimum Microsoft Windows Version (Java 8 is not supported on Windows XP, minnimum is Windows Vista >= 6.0)
+    * If some fatal error occours, the error will now be displayed (as a Message), too.
+    * clean up check_msi-exitcode; remove dead code and display fatal errors.
+    * automate get last version of Java 7 and 8 (StringList)
+
+
+java (1.8.0-4) urgency=high
+  -- Kevin Weis <kevin.weis@faw.de> 2014-03-25.1933
+  * update
+  * switch install procedure to exe, insted deprecated use of the msi-package
+  * drop install procedure using the msi-package
+  * add support for in- and uninstall both (jdk and jre), jce patched of cause ;)
+  * switch message locale from german to english
+  * Use the check_msi-exitcode script from “Der-Matze”: https://forum.opsi.org/wiki/userspace:check_msi-exitcode
+
+see also: http://www.oracle.com/technetwork/java/javase/8train-relnotes-latest-2153846.html
+
+
+java (7.0.51-3) urgency=high
+  -- Kevin Weis <kevin.weis@faw.de> 2014-01-17.1220
+  * update
+  * add patch for JCE (Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 7)
+  * find installed versions of JRE now by using a for loop (supporting deinstallation since java 6u10 x64 and x32)
+  * serval other little impovments
+
+
+java (7.0.40-2.2) urgency=high
+ -- Kevin Weis <kevin.weis@faw.de> 2013-10-14.1009
+        update java version to 7.0.40
+        SetLogLevel=4
+        check_uninstall.ins:
+                add explicit declaration for >=java-7.0.10 of "GetRegistryStringValue32" and "GetRegistryStringValue64"
+
+
+java (7.0.25-2.1) urgency=high
+ -- Kevin Weis <kevin.weis@faw.de> 13:39 02.04.2013
+        * check_uninstall.ins:4-9
+
+
+java (7.0.17-2.1) urgency=high
+ -- Kevin Weis <kevin.weis@faw.de> 13:39 02.04.2013
+        - Bugfix bugfix = hing fest bei der Installation/Deinstallation
+
+
+java (7.0.9-2.0) urgency=high
+ -- Kevin Weis <kevin.weis@faw.de> 12:19 12.11.2012
+        - Umstellung auf MSI
+        - Automatische Entscheidung zwischen x86 und x64
+        - autoupdate = off
+        - Bugfix = hing fest bei der Installation/Deinstallation
+
+
+java (7.0-7) testing; urgency=low
+
+
+java (7.0-4) testing; urgency=low
+ -- Kevin Weis <kevinweis@gmx.de> 12:39 05.11.2012
+  * Initial package
+
+</code>
