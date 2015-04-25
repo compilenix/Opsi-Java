@@ -1,17 +1,16 @@
-====== Java (java_1.8.0.40.26-4.2.3) ======
+====== Java (java_1.8.0.45.14-4.2.3) ======
 **Feel free to contact me :)**
 
 Tested with Opsi 4.0.5.15\\
 Tested with 8.1 Pro x64\\
-Tested with Java 6u10 - 8u40\\
+Tested with Java 6u10 - 8u45\\
 requiredWinstVersion >= 4.11.3\\
-By <Compilenix@compilenix.org> 2015-03-20\\
+By <Compilenix@compilenix.org> 2015-04-15\\
 
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.opsi | All in one - installable opsi package (~ 850 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.opsi.asc | (detached pgp signature)]]
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.opsi | All in one - installable opsi package (~ 852 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.opsi.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.7z | Setup binary´s only - Java 8 (~ 850 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.7z.asc | (detached pgp signature)]]\\
 
-For an altanative, you can download only the parts you want;\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3_script.opsi.7z | Without setup binary´s (~ 28 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3_script.opsi.7z.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.7z | Setup binary´s only - Java 8 (~ 830 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.40.26-4.2.3.7z.asc | (detached pgp signature)]]\\
+Source: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]
 
 Check if you have the JCE extrension installed: [[http://compilenix.org/public/opsi/jceCheck.jar | jceCheck.jar]] [[http://compilenix.org/public/opsi/jceCheck.jar.asc | (detached pgp signature)]]\\
 
@@ -30,59 +29,59 @@ Tree:
 │   jceCheck.jar
 │
 ├───CLIENT_DATA
-│   │   java.png
-│   │   uninstall.ins
-│   │   Sub_UpdateVariables.ins
-│   │   setup.ins
 │   │   check_msi-exitcode.ins
 │   │   check_uninstall.ins
 │   │   delsub.ins
+│   │   java.png
+│   │   setup.ins
+│   │   Sub_UpdateVariables.ins
+│   │   uninstall.ins
 │   │
-│   ├───UnlimitedJCEPolicy
-│   │       local_policy.jar
-│   │       JCE_PATCHED
-│   │       README.txt
-│   │       US_export_policy.jar
+│   ├───setup_data
+│   │   │   jdk-8u45-windows-i586.exe
+│   │   │   jdk-8u45-windows-x64.exe
+│   │   │   jre-8u45-windows-i586.exe
+│   │   │   jre-8u45-windows-x64.exe
+│   │   │   License.txt
+│   │   │   License.url
+│   │   │
+│   │   └───msi
+│   │       ├───jdk1.8.0_45
+│   │       │       jdk1.8.0_45.msi
+│   │       │       sj180450.cab
+│   │       │       ss180450.cab
+│   │       │       st180450.cab
+│   │       │       sz180450.cab
+│   │       │
+│   │       ├───jdk1.8.0_45_x64
+│   │       │       jdk1.8.0_45.msi
+│   │       │       sj180450.cab
+│   │       │       ss180450.cab
+│   │       │       st180450.cab
+│   │       │       sz180450.cab
+│   │       │
+│   │       ├───jre1.8.0_45
+│   │       │       jre1.8.0_45.msi
+│   │       │
+│   │       └───jre1.8.0_45_x64
+│   │               jre1.8.0_45.msi
 │   │
-│   └───setup_data
-│       │   jdk-8u40-windows-i586.exe
-│       │   License.txt
-│       │   jre-8u40-windows-x64.exe
-│       │   jdk-8u40-windows-x64.exe
-│       │   jre-8u40-windows-i586.exe
-│       │   License.url
-│       │
-│       └───msi
-│           ├───jre1.8.0_40_x64
-│           │       jre1.8.0_40.msi
-│           │
-│           ├───jdk1.8.0_40_x64
-│           │       jdk1.8.0_40.msi
-│           │       sz180400.cab
-│           │       st180400.cab
-│           │       sj180400.cab
-│           │       ss180400.cab
-│           │
-│           ├───jre1.8.0_40
-│           │       jre1.8.0_40.msi
-│           │
-│           └───jdk1.8.0_40
-│                   jdk1.8.0_40.msi
-│                   sz180400.cab
-│                   st180400.cab
-│                   sj180400.cab
-│                   ss180400.cab
+│   └───UnlimitedJCEPolicy
+│           JCE_PATCHED
+│           local_policy.jar
+│           README.txt
+│           US_export_policy.jar
 │
 └───OPSI
-        preinst
-        postinst
         control
+        postinst
+        preinst
 </code>
 
 ==== What is does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.40, JDK of Java 1.7.0.0 until 1.8.0.40
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.45, JDK of Java 1.7.0.0 until 1.8.0.45
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -103,9 +102,9 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.40.26-4.2.3)
-  -- Kevin Weis <Compilenix@compilenix.org> 2015-03-19
-  * fixed: installation of Java JRE x86 on a x64 OS does not work (exit code 3)
+java (1.8.0.45.14-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-04-15
+  * update
 </code>
 
 ==== TODO ====
@@ -126,7 +125,7 @@ id: java
 name: Java
 description: 
 advice: Tested with Opsi 4.0.5.15 and on Win 8.1 Pro
-version: 1.8.0.40.26
+version: 1.8.0.45.14
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -193,6 +192,10 @@ values: ["False", "True"]
 default: ["False"]
 
 [Changelog]
+java (1.8.0.45.14-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-04-15
+  * update
+
 java (1.8.0.40.26-4.2.3)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-03-19
   * fixed: installation of Java JRE x86 on a x64 OS does not work (exit code 3)

@@ -9,7 +9,7 @@ id: java
 name: Java
 description: 
 advice: Tested with Opsi 4.0.5.15 and on Win 8.1 Pro
-version: 1.8.0.40.26
+version: 1.8.0.45.14
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -76,6 +76,10 @@ values: ["False", "True"]
 default: ["False"]
 
 [Changelog]
+java (1.8.0.45.14-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-04-15
+  * update
+
 java (1.8.0.40.26-4.2.3)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-03-19
   * fixed: installation of Java JRE x86 on a x64 OS does not work (exit code 3)
@@ -182,7 +186,3 @@ java (7.0-7) testing; urgency=low
 java (7.0-4) testing; urgency=low
  -- Kevin Weis <kevinweis@gmx.de> 12:39 05.11.2012
   * Initial package
-
-
-
-
