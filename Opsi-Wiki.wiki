@@ -1,14 +1,18 @@
-====== Java (java_1.8.0.45.14-4.2.3) ======
+====== Java (java_1.8.0.51.16-4.2.3) ======
 **Feel free to contact me :)**
 
 Tested with Opsi 4.0.5.15\\
+Tested with Winst 4.11.4.12\\
 Tested with 8.1 Pro x64\\
-Tested with Java 6u10 - 8u45\\
+Tested with Win 10 (10.0.10162.0)\\
+Tested with Win 2012 R2\\
+Tested with Java 6u10 - 8u51\\
 requiredWinstVersion >= 4.11.3\\
-By <Compilenix@compilenix.org> 2015-04-15\\
+By <Compilenix@compilenix.org> 2015-07-20\\
 
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.opsi | All in one - installable opsi package (~ 852 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.opsi.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.7z | Setup binary´s only - Java 8 (~ 850 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.45.14-4.2.3.7z.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.opsi | All in one - installable opsi package (~ 852 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.opsi.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.7z | Setup binary´s only (~ 842 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.7z.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3_script.7z | Setup script´s only (~ 55 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3_script.7z.asc | (detached pgp signature)]]\\
 
 Source: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]
 
@@ -29,59 +33,59 @@ Tree:
 │   jceCheck.jar
 │
 ├───CLIENT_DATA
+│   │   java.png
+│   │   uninstall.ins
+│   │   Sub_UpdateVariables.ins
+│   │   setup.ins
 │   │   check_msi-exitcode.ins
 │   │   check_uninstall.ins
 │   │   delsub.ins
-│   │   java.png
-│   │   setup.ins
-│   │   Sub_UpdateVariables.ins
-│   │   uninstall.ins
 │   │
-│   ├───setup_data
-│   │   │   jdk-8u45-windows-i586.exe
-│   │   │   jdk-8u45-windows-x64.exe
-│   │   │   jre-8u45-windows-i586.exe
-│   │   │   jre-8u45-windows-x64.exe
-│   │   │   License.txt
-│   │   │   License.url
-│   │   │
-│   │   └───msi
-│   │       ├───jdk1.8.0_45
-│   │       │       jdk1.8.0_45.msi
-│   │       │       sj180450.cab
-│   │       │       ss180450.cab
-│   │       │       st180450.cab
-│   │       │       sz180450.cab
-│   │       │
-│   │       ├───jdk1.8.0_45_x64
-│   │       │       jdk1.8.0_45.msi
-│   │       │       sj180450.cab
-│   │       │       ss180450.cab
-│   │       │       st180450.cab
-│   │       │       sz180450.cab
-│   │       │
-│   │       ├───jre1.8.0_45
-│   │       │       jre1.8.0_45.msi
-│   │       │
-│   │       └───jre1.8.0_45_x64
-│   │               jre1.8.0_45.msi
+│   ├───UnlimitedJCEPolicy
+│   │       local_policy.jar
+│   │       JCE_PATCHED
+│   │       README.txt
+│   │       US_export_policy.jar
 │   │
-│   └───UnlimitedJCEPolicy
-│           JCE_PATCHED
-│           local_policy.jar
-│           README.txt
-│           US_export_policy.jar
+│   └───setup_data
+│       │   jre-8u51-windows-x64.exe
+│       │   License.txt
+│       │   jdk-8u51-windows-x64.exe
+│       │   jre-8u51-windows-i586.exe
+│       │   jdk-8u51-windows-i586.exe
+│       │   License.url
+│       │
+│       └───msi
+│           ├───jdk1.8.0_51_x64
+│           │       ss180510.cab
+│           │       jdk1.8.0_51.msi
+│           │       sz180510.cab
+│           │       sj180510.cab
+│           │       st180510.cab
+│           │
+│           ├───jre1.8.0_51_x64
+│           │       jre1.8.0_51.msi
+│           │
+│           ├───jdk1.8.0_51
+│           │       ss180510.cab
+│           │       jdk1.8.0_51.msi
+│           │       sz180510.cab
+│           │       sj180510.cab
+│           │       st180510.cab
+│           │
+│           └───jre1.8.0_51
+│                   jre1.8.0_51.msi
 │
 └───OPSI
-        control
-        postinst
         preinst
+        postinst
+        control
 </code>
 
 ==== What is does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.45, JDK of Java 1.7.0.0 until 1.8.0.45
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.51, JDK of Java 1.7.0.0 until 1.8.0.51
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -102,8 +106,8 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.45.14-4.2.3)
-  -- Kevin Weis <Compilenix@compilenix.org> 2015-04-15
+java (1.8.0.51.16-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-07-20
   * update
 </code>
 
@@ -124,8 +128,8 @@ type: localboot
 id: java
 name: Java
 description: 
-advice: Tested with Opsi 4.0.5.15 and on Win 8.1 Pro
-version: 1.8.0.45.14
+advice: Tested with Opsi 4.0.5.15, Winst 4.11.4.12 on Win 8.1 Pro, Win 10 (10.0.10162.0) and Win 2012 R2
+version: 1.8.0.51.16
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -192,6 +196,10 @@ values: ["False", "True"]
 default: ["False"]
 
 [Changelog]
+java (1.8.0.51.16-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-07-20
+  * update
+
 java (1.8.0.45.14-4.2.3)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-04-15
   * update
@@ -218,11 +226,9 @@ java (1.8.0.11.12-4.2.1)
   -- Kevin Weis <kevinweis@gmx.de> 2014-08-14
   * update; Java 1.0.7.65 build 19 to 1.0.7.67 build 1
 
-
 java (1.8.0.11.12-4.2)
   -- Kevin Weis <kevinweis@gmx.de> 2014-07-21
   * update; Java 1.0.7.60 build 19 to 1.0.7.65 build 19
-
 
 java (1.8.0.05.13-4.2)
   -- Kevin Weis <kevinweis@gmx.de> 2014-06-14
@@ -232,7 +238,6 @@ java (1.8.0.05.13-4.2)
   Minor changes:
     * add killing Opera.exe, before in-/uninstall.
     * little Bug-fix which caused an installation abort with the (expected at this point) error code 1619.
-
 
 java (1.8.0.05.13-4.1) urgency=high
   -- Kevin Weis <kevin.weis@faw.de> 2014-04-17
@@ -249,7 +254,6 @@ java (1.8.0.05.13-4.1) urgency=high
     * clean up check_msi-exitcode; remove dead code and display fatal errors.
     * automate get last version of Java 7 and 8 (StringList)
 
-
 java (1.8.0-4) urgency=high
   -- Kevin Weis <kevin.weis@faw.de> 2014-03-25.1933
   * update
@@ -261,14 +265,12 @@ java (1.8.0-4) urgency=high
 
 see also: http://www.oracle.com/technetwork/java/javase/8train-relnotes-latest-2153846.html
 
-
 java (7.0.51-3) urgency=high
   -- Kevin Weis <kevin.weis@faw.de> 2014-01-17.1220
   * update
   * add patch for JCE (Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 7)
   * find installed versions of JRE now by using a for loop (supporting deinstallation since java 6u10 x64 and x32)
   * serval other little impovments
-
 
 java (7.0.40-2.2) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 2013-10-14.1009
@@ -277,16 +279,13 @@ java (7.0.40-2.2) urgency=high
         check_uninstall.ins:
                 add explicit declaration for >=java-7.0.10 of "GetRegistryStringValue32" and "GetRegistryStringValue64"
 
-
 java (7.0.25-2.1) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 13:39 02.04.2013
         * check_uninstall.ins:4-9
 
-
 java (7.0.17-2.1) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 13:39 02.04.2013
         - Bugfix bugfix = hing fest bei der Installation/Deinstallation
-
 
 java (7.0.9-2.0) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 12:19 12.11.2012
@@ -295,9 +294,7 @@ java (7.0.9-2.0) urgency=high
         - autoupdate = off
         - Bugfix = hing fest bei der Installation/Deinstallation
 
-
 java (7.0-7) testing; urgency=low
-
 
 java (7.0-4) testing; urgency=low
  -- Kevin Weis <kevinweis@gmx.de> 12:39 05.11.2012
