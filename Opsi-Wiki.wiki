@@ -1,18 +1,17 @@
-====== Java (java_1.8.0.51.16-4.2.3) ======
+====== Java (java_1.8.0.60.27-4.2.3) ======
 **Feel free to contact me :)**
 
-Tested with Opsi 4.0.5.15\\
+Tested with Opsi 4.0.5.20\\
 Tested with Winst 4.11.4.12\\
+Tested with 7 Enterprise x86\\
 Tested with 8.1 Pro x64\\
-Tested with Win 10 (10.0.10162.0)\\
-Tested with Win 2012 R2\\
-Tested with Java 6u10 - 8u51\\
+Tested with Java 6u10 - 8u60\\
 requiredWinstVersion >= 4.11.3\\
-By <Compilenix@compilenix.org> 2015-07-20\\
+By <Compilenix@compilenix.org> 2015-09-09\\
 
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.opsi | All in one - installable opsi package (~ 852 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.opsi.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.7z | Setup binary´s only (~ 842 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3.7z.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3_script.7z | Setup script´s only (~ 55 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.51.16-4.2.3_script.7z.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.60.27-4.2.3.opsi | All in one - installable opsi package (~ 852 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.60.27-4.2.3.opsi.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.60.27-4.2.3.7z | Setup binary´s only (~ 842 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.60.27-4.2.3.7z.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.60.27-4.2.3_script.7z | Setup script´s only (~ 55 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.60.27-4.2.3_script.7z.asc | (detached pgp signature)]]\\
 
 Source: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]
 
@@ -30,62 +29,53 @@ Download: my [[http://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Hi
 
 <code>
 Tree:
-│   jceCheck.jar
-│
-├───CLIENT_DATA
-│   │   java.png
-│   │   uninstall.ins
-│   │   Sub_UpdateVariables.ins
-│   │   setup.ins
-│   │   check_msi-exitcode.ins
-│   │   check_uninstall.ins
-│   │   delsub.ins
-│   │
-│   ├───UnlimitedJCEPolicy
-│   │       local_policy.jar
-│   │       JCE_PATCHED
-│   │       README.txt
-│   │       US_export_policy.jar
-│   │
-│   └───setup_data
-│       │   jre-8u51-windows-x64.exe
-│       │   License.txt
-│       │   jdk-8u51-windows-x64.exe
-│       │   jre-8u51-windows-i586.exe
-│       │   jdk-8u51-windows-i586.exe
-│       │   License.url
-│       │
-│       └───msi
-│           ├───jdk1.8.0_51_x64
-│           │       ss180510.cab
-│           │       jdk1.8.0_51.msi
-│           │       sz180510.cab
-│           │       sj180510.cab
-│           │       st180510.cab
-│           │
-│           ├───jre1.8.0_51_x64
-│           │       jre1.8.0_51.msi
-│           │
-│           ├───jdk1.8.0_51
-│           │       ss180510.cab
-│           │       jdk1.8.0_51.msi
-│           │       sz180510.cab
-│           │       sj180510.cab
-│           │       st180510.cab
-│           │
-│           └───jre1.8.0_51
-│                   jre1.8.0_51.msi
-│
-└───OPSI
-        preinst
-        postinst
-        control
+├── CLIENT_DATA
+│   ├── check_msi-exitcode.ins
+│   ├── check_uninstall.ins
+│   ├── delsub.ins
+│   ├── java.png
+│   ├── setup_data
+│   │   ├── jdk-8u60-windows-i586.exe
+│   │   ├── jdk-8u60-windows-x64.exe
+│   │   ├── jre-8u60-windows-i586.exe
+│   │   ├── jre-8u60-windows-x64.exe
+│   │   ├── License.txt
+│   │   ├── License.url
+│   │   └── msi
+│   │       ├── jdk1.8.0_60
+│   │       │   ├── jdk1.8.0_60.msi
+│   │       │   ├── sj180600.cab
+│   │       │   ├── ss180600.cab
+│   │       │   ├── st180600.cab
+│   │       │   └── sz180600.cab
+│   │       ├── jdk1.8.0_60_x64
+│   │       │   ├── jdk1.8.0_60.msi
+│   │       │   ├── sj180600.cab
+│   │       │   ├── ss180600.cab
+│   │       │   ├── st180600.cab
+│   │       │   └── sz180600.cab
+│   │       ├── jre1.8.0_60
+│   │       │   └── jre1.8.0_60.msi
+│   │       └── jre1.8.0_60_x64
+│   │           └── jre1.8.0_60.msi
+│   ├── setup.ins
+│   ├── Sub_UpdateVariables.ins
+│   ├── uninstall.ins
+│   └── UnlimitedJCEPolicy
+│       ├── JCE_PATCHED
+│       ├── local_policy.jar
+│       ├── README.txt
+│       └── US_export_policy.jar
+└── OPSI
+    ├── control
+    ├── postinst
+    └── preinst
 </code>
 
 ==== What is does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.51, JDK of Java 1.7.0.0 until 1.8.0.51
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.60, JDK of Java 1.7.0.0 until 1.8.0.60
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -106,8 +96,8 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.51.16-4.2.3)
-  -- Kevin Weis <Compilenix@compilenix.org> 2015-07-20
+java (1.8.0.60.27-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-09-09
   * update
 </code>
 
@@ -128,8 +118,8 @@ type: localboot
 id: java
 name: Java
 description: 
-advice: Tested with Opsi 4.0.5.15, Winst 4.11.4.12 on Win 8.1 Pro, Win 10 (10.0.10162.0) and Win 2012 R2
-version: 1.8.0.51.16
+advice: Tested with Opsi 4.0.5.15, Winst 4.11.4.12 on Win 8.1 Pro
+version: 1.8.0.60.27
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -196,6 +186,10 @@ values: ["False", "True"]
 default: ["False"]
 
 [Changelog]
+java (1.8.0.60.27-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-09-09
+  * update
+
 java (1.8.0.51.16-4.2.3)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-07-20
   * update
