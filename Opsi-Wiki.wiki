@@ -6,13 +6,13 @@ Tested with Winst 4.11.4.12\\
 Tested with 7 Enterprise x86/x64\\
 Tested with 8.1 Pro x64\\
 Tested with 10 Enterprise x64\\
-Tested with Java 6u10 - 8u60\\
+Tested with Java 6u10 - 8u66\\
 requiredWinstVersion >= 4.11.3\\
 By <Compilenix@compilenix.org> 2015-10-26\\
 
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.opsi | All in one - installable opsi package (~ 852 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.opsi.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.7z | Setup binary´s only (~ 842 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.7z.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3_script.7z | Setup script´s only (~ 55 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3_script.7z.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.opsi | All in one - installable opsi package (~ 923 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.opsi.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.7z | Setup binary´s only (~ 952 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.7z.asc | (detached pgp signature)]]\\
+Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3_script.7z | Setup script´s only (~ 222 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3_script.7z.asc | (detached pgp signature)]]\\
 
 Checksum's: [[http://compilenix.org/public/opsi/localboot/java/ | md5, sha1, sha256, sha512]] and of cause the [[http://compilenix.org/public/opsi/localboot/java/ | (detached pgp signatures)]]\\
 
