@@ -1,10 +1,9 @@
-Set $UninstallCommand$ = 'msiexec.exe /X ' + $Temp_Msi$ + ' /qb! REBOOT=ReallySuppress'
+Set $UninstallCommand$ = 'msiexec.exe /X ' + $Temp_Msi$ + ' /qb! REBOOT="ReallySuppress"'
 
 KillTask "firefox.exe"
 KillTask "iexplore.exe"
-KillTask "chrome.exe"
-KillTask "opera.exe"
 KillTask "jqs.exe"
+KillTask "MicrosoftEdge.exe"
 KillTask "java.exe"
 KillTask "javaw.exe"
 

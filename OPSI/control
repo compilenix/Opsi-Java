@@ -8,8 +8,8 @@ type: localboot
 id: java
 name: Java
 description: 
-advice: Tested with Opsi 4.0.5.20, Winst 4.11.4.12 on Win 7 Enterprise x86 and Win 8.1 Pro
-version: 1.8.0.60.27
+advice: Tested with Opsi 4.0.5.20, Winst 4.11.4.12 on Win 7 Enterprise x86/x64, Win 8.1 Pro x64 and Win 10 x64
+version: 1.8.0.66.17
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -76,6 +76,10 @@ values: ["False", "True"]
 default: ["False"]
 
 [Changelog]
+java (1.8.0.66.17-4.2.3)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
+  * update
+
 java (1.8.0.60.27-4.2.3)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-09-09
   * update
@@ -183,6 +187,7 @@ java (7.0-7) testing; urgency=low
 java (7.0-4) testing; urgency=low
  -- Kevin Weis <kevinweis@gmx.de> 12:39 05.11.2012
   * Initial package
+
 
 
 

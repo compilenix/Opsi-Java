@@ -92,7 +92,7 @@ right. Upon termination, you must destroy all copies of Software.
 7. EXPORT REGULATIONS. You agree that U.S. export control laws and other
 applicable export and import laws govern your use of the Software, including
 technical data; additional information can be found on Oracle's Global Trade
-Compliance web site (http://www.oracle.com/products/export). You agree that
+Compliance web site (http://www.oracle.com/us/products/export). You agree that
 neither the Software nor any direct product thereof will be exported, directly,
 or indirectly, in violation of these laws, or will be used for any purpose
 prohibited by these laws including, without limitation, nuclear, chemical, or
