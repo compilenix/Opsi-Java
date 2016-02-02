@@ -1,3 +1,7 @@
+If $ProductProperty_updateBranch$ = "PCU"
+	Set $UpdateVersion8$ = TakeString ( -1, $StringList_Java8$ )
+EndIf
+
 Set $ProductDisplayVersion$ = $ProductProperty_Version$ + "u" + $UpdateVersion8$
 Set $ProductVersion$ = "1." + $ProductProperty_Version$ + ".0_" + $UpdateVersion8$
 Set $PathSetup_Msi32$ = "msi\" + $ProductProperty_VM-Type$ + $ProductVersion$ + "\" + $ProductProperty_VM-Type$ + $ProductVersion$ + ".msi"

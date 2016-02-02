@@ -1,34 +1,32 @@
-====== Java (java_1.8.0.66.17-4.2.3) ======
+====== Java (java_1.8.0.72.15-4.2.4) ======
 **Feel free to contact me :)**
 
-Tested with Opsi 4.0.5.20\\
-Tested with Winst 4.11.4.12\\
-Tested with 7 Enterprise x86/x64\\
+Tested with Opsi 4.0.6.11\\
+Tested with Winst 4.11.3.6\\
 Tested with 8.1 Pro x64\\
-Tested with 10 Enterprise x64\\
-Tested with Java 6u10 - 8u66\\
+Tested with Java 6u10 - 8u72\\
 requiredWinstVersion >= 4.11.3\\
-By <Compilenix@compilenix.org> 2015-10-26\\
+By <Compilenix@compilenix.org> 2016-02-02\\
 
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.opsi | All in one - installable opsi package (~ 923 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.opsi.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.7z | Setup binary´s only (~ 952 MiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3.7z.asc | (detached pgp signature)]]\\
-Download: [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3_script.7z | Setup script´s only (~ 222 KiB)]] [[http://compilenix.org/public/opsi/localboot/java/java_1.8.0.66.17-4.2.3_script.7z.asc | (detached pgp signature)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.opsi | All in one - installable opsi package (~ 1.8 GiB)]] [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.opsi.asc | (detached pgp signature)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.7z | MSI-Setup binary´s only (~ 905 MiB)]] [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.7z.asc | (detached pgp signature)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4_script.7z | Setup script´s only (~ 28 KiB)]] [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4_script.7z.asc | (detached pgp signature)]]\\
 
-Checksum's: [[http://compilenix.org/public/opsi/localboot/java/ | md5, sha1, sha256, sha512]] and of cause the [[http://compilenix.org/public/opsi/localboot/java/ | (detached pgp signatures)]]\\
+Checksum's: [[https://compilenix.org/public/opsi/localboot/java/ | sha1, sha256]] and the [[https://compilenix.org/public/opsi/localboot/java/ | (detached pgp signatures)]]\\
 
 Source: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]
 
-Check if you have the JCE extrension installed: [[http://compilenix.org/public/opsi/jceCheck.jar | jceCheck.jar]] [[http://compilenix.org/public/opsi/jceCheck.jar.asc | (detached pgp signature)]]\\
+Check if you have the JCE extrension installed: [[https://compilenix.org/public/opsi/jceCheck.jar | jceCheck.jar]] [[https://compilenix.org/public/opsi/jceCheck.jar.asc | (detached pgp signature)]]\\
 
 All downloads are pgp signed with:\\
 Compilenix <Compilenix@compilenix.org>\\
-Validity: from 2015-01-09 11:29 through 2016-01-09 11:29\\
+Validity: from 2015-01-09 11:29 until forever or revoked\\
 Certificate type: 4,096-bit RSA\\
 Key-ID: E763633D\\
 Fingerprint: CC6047FA5B4449F28940636910B6666EE763633D\\
-http://compilenix.org/public/certificates/pgp/compilenix%40compilenix.org%20%280xE763633D%29.asc
+https://compilenix.org/public/certificates/pgp/compilenix%40compilenix.org%20%280xE763633D%29.asc
 
-Download: my [[http://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]
+Download: my [[https://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]
 
 <code>
 Tree:
@@ -38,50 +36,68 @@ Tree:
 │   ├── delsub.ins
 │   ├── java.png
 │   ├── setup_data
-│   │   ├── jdk-8u66-windows-i586.exe
-│   │   ├── jdk-8u66-windows-x64.exe
-│   │   ├── jre-8u66-windows-i586.exe
-│   │   ├── jre-8u66-windows-x64.exe
+│   │   ├── jdk-8u71-windows-i586.exe
+│   │   ├── jdk-8u71-windows-x64.exe
+│   │   ├── jdk-8u72-windows-i586.exe
+│   │   ├── jdk-8u72-windows-x64.exe
+│   │   ├── jre-8u71-windows-i586.exe
+│   │   ├── jre-8u71-windows-x64.exe
+│   │   ├── jre-8u72-windows-i586.exe
+│   │   ├── jre-8u72-windows-x64.exe
 │   │   ├── License.txt
 │   │   ├── License.url
 │   │   └── msi
-│   │       ├── jdk1.8.0_66
-│   │       │   ├── jdk1.8.0_66.msi
-│   │       │   ├── sj180660.cab
-│   │       │   ├── ss180660.cab
-│   │       │   ├── st180660.cab
-│   │       │   └── sz180660.cab
-│   │       ├── jdk1.8.0_66_x64
-│   │       │   ├── jdk1.8.0_66.msi
-│   │       │   ├── sj180660.cab
-│   │       │   ├── ss180660.cab
-│   │       │   ├── st180660.cab
-│   │       │   └── sz180660.cab
-│   │       ├── jre1.8.0_66
-│   │       │   └── jre1.8.0_66.msi
-│   │       └── jre1.8.0_66_x64
-│   │           └── jre1.8.0_66.msi
+│   │       ├── jdk1.8.0_71
+│   │       │   ├── jdk1.8.0_71.msi
+│   │       │   ├── sj180710.cab
+│   │       │   ├── ss180710.cab
+│   │       │   ├── st180710.cab
+│   │       │   └── sz180710.cab
+│   │       ├── jdk1.8.0_71_x64
+│   │       │   ├── jdk1.8.0_71.msi
+│   │       │   ├── sj180710.cab
+│   │       │   ├── ss180710.cab
+│   │       │   ├── st180710.cab
+│   │       │   └── sz180710.cab
+│   │       ├── jdk1.8.0_72
+│   │       │   ├── jdk1.8.0_72.msi
+│   │       │   ├── sj180720.cab
+│   │       │   ├── ss180720.cab
+│   │       │   ├── st180720.cab
+│   │       │   └── sz180720.cab
+│   │       ├── jdk1.8.0_72_x64
+│   │       │   ├── jdk1.8.0_72.msi
+│   │       │   ├── sj180720.cab
+│   │       │   ├── ss180720.cab
+│   │       │   ├── st180720.cab
+│   │       │   └── sz180720.cab
+│   │       ├── jre1.8.0_71
+│   │       │   └── jre1.8.0_71.msi
+│   │       ├── jre1.8.0_71_x64
+│   │       │   └── jre1.8.0_71.msi
+│   │       ├── jre1.8.0_72
+│   │       │   └── jre1.8.0_72.msi
+│   │       └── jre1.8.0_72_x64
+│   │           └── jre1.8.0_72.msi
 │   ├── setup.ins
 │   ├── Sub_UpdateVariables.ins
 │   ├── uninstall.ins
 │   └── UnlimitedJCEPolicy
 │       ├── JCE_PATCHED
-│       ├── local_policy.jar
-│       ├── README.txt
-│       └── US_export_policy.jar
+│       └── README.txt
 └── OPSI
-	├── control
-	├── postinst
-	└── preinst
+    ├── control
+    ├── postinst
+    └── preinst
 
 </code>
 
 ==== What is does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.66, JDK of Java 1.7.0.0 until 1.8.0.66
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.72, JDK of Java 1.7.0.0 until 1.8.0.72
   - Installation of Java 8
-  - Add the JCE Patch to every Java installation; see: [[http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
+  - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
 
  It Does NOT:
@@ -100,9 +116,11 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.66.17-4.2.3)
-  -- Kevin Weis <Compilenix@compilenix.org> 2015-09-09
+java (1.8.0.72.15-4.2.4)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
   * update
+  * add Product "updateBranch" choose between 8u71 and 8u72 (more info: http://www.oracle.com/technetwork/java/javase/cpu-psu-explained-2331472.html)
+  * add Product Property "64bitonly" (default: False)
 </code>
 
 ==== TODO ====
@@ -113,7 +131,7 @@ java (1.8.0.66.17-4.2.3)
 ===== control =====
 <code winst control.txt>
 [Package]
-version: 4.2.3
+version: 4.2.4
 depends: 
 incremental: False
 
@@ -122,8 +140,8 @@ type: localboot
 id: java
 name: Java
 description: 
-advice: Tested with Opsi 4.0.5.20, Winst 4.11.4.12 on Win 7 Enterprise x86/x64, Win 8.1 Pro x64 and Win 10 x64
-version: 1.8.0.66.17
+advice: Tested with Opsi 4.0.6.11, Winst 4.11.3.6 on Win 8.1 Pro x64
+version: 1.8.0.72.15
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -189,7 +207,31 @@ description: Toggle if on a 64bit OS only the 32bit JRE/JDK will be installed.
 values: ["False", "True"]
 default: ["False"]
 
+[ProductProperty]
+type: unicode
+name: 64bitonly
+multivalue: False
+editable: False
+description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
+values: ["False", "True"]
+default: ["False"]
+
+[ProductProperty]
+type: unicode
+name: updatebranch
+multivalue: False
+editable: False
+description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PCU)
+values: ["CPU", "PCU"]
+default: ["CPU"]
+
 [Changelog]
+java (1.8.0.72.15-4.2.4)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
+  * update
+  * add Product "updateBranch" choose between 8u71 and 8u72 (more info: http://www.oracle.com/technetwork/java/javase/cpu-psu-explained-2331472.html)
+  * add Product Property "64bitonly" (default: False)
+
 java (1.8.0.66.17-4.2.3)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
   * update
@@ -238,8 +280,8 @@ java (1.8.0.05.13-4.2)
   * add ProductProperty "32bitOnly". The functionality of this option will be extended with the next Java 8 update.
   * since this update (Java 7u60 JRE x64/x86) the MSI-GUID has changed at one charcter (from "8" to "0"), no idea why -> ask Oracle -.- (see "check_uninstall.ins" from line 69 - 74)
   Minor changes:
-	* add killing Opera.exe, before in-/uninstall.
-	* little Bug-fix which caused an installation abort with the (expected at this point) error code 1619.
+    * add killing Opera.exe, before in-/uninstall.
+    * little Bug-fix which caused an installation abort with the (expected at this point) error code 1619.
 
 java (1.8.0.05.13-4.1) urgency=high
   -- Kevin Weis <kevin.weis@faw.de> 2014-04-17
@@ -250,11 +292,11 @@ java (1.8.0.05.13-4.1) urgency=high
   * change default of ProductProperty "WebJava-Security_Level" from "M" to "VH"
   * NOTE: I´m using the JCE patch for Java 8, this work for Java 7 too (tested, no unwanted behaviour with SHA384, SHA512, AES192 and AES256)
   Minor changes:
-	* Apply new variables nomination
-	* Fix check for minnimum Microsoft Windows Version (Java 8 is not supported on Windows XP, minnimum is Windows Vista >= 6.0)
-	* If some fatal error occours, the error will now be displayed (as a Message), too.
-	* clean up check_msi-exitcode; remove dead code and display fatal errors.
-	* automate get last version of Java 7 and 8 (StringList)
+    * Apply new variables nomination
+    * Fix check for minnimum Microsoft Windows Version (Java 8 is not supported on Windows XP, minnimum is Windows Vista >= 6.0)
+    * If some fatal error occours, the error will now be displayed (as a Message), too.
+    * clean up check_msi-exitcode; remove dead code and display fatal errors.
+    * automate get last version of Java 7 and 8 (StringList)
 
 java (1.8.0-4) urgency=high
   -- Kevin Weis <kevin.weis@faw.de> 2014-03-25.1933
@@ -276,25 +318,25 @@ java (7.0.51-3) urgency=high
 
 java (7.0.40-2.2) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 2013-10-14.1009
-		update java version to 7.0.40
-		SetLogLevel=4
-		check_uninstall.ins:
-				add explicit declaration for >=java-7.0.10 of "GetRegistryStringValue32" and "GetRegistryStringValue64"
+        update java version to 7.0.40
+        SetLogLevel=4
+        check_uninstall.ins:
+                add explicit declaration for >=java-7.0.10 of "GetRegistryStringValue32" and "GetRegistryStringValue64"
 
 java (7.0.25-2.1) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 13:39 02.04.2013
-		* check_uninstall.ins:4-9
+        * check_uninstall.ins:4-9
 
 java (7.0.17-2.1) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 13:39 02.04.2013
-		- Bugfix bugfix = hing fest bei der Installation/Deinstallation
+        - Bugfix bugfix = hing fest bei der Installation/Deinstallation
 
 java (7.0.9-2.0) urgency=high
  -- Kevin Weis <kevin.weis@faw.de> 12:19 12.11.2012
-		- Umstellung auf MSI
-		- Automatische Entscheidung zwischen x86 und x64
-		- autoupdate = off
-		- Bugfix = hing fest bei der Installation/Deinstallation
+        - Umstellung auf MSI
+        - Automatische Entscheidung zwischen x86 und x64
+        - autoupdate = off
+        - Bugfix = hing fest bei der Installation/Deinstallation
 
 java (7.0-7) testing; urgency=low
 

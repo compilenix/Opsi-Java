@@ -1,5 +1,5 @@
 [Package]
-version: 4.2.3
+version: 4.2.4
 depends: 
 incremental: False
 
@@ -8,8 +8,8 @@ type: localboot
 id: java
 name: Java
 description: 
-advice: Tested with Opsi 4.0.5.20, Winst 4.11.4.12 on Win 7 Enterprise x86/x64, Win 8.1 Pro x64 and Win 10 x64
-version: 1.8.0.66.17
+advice: Tested with Opsi 4.0.6.11, Winst 4.11.3.6 on Win 8.1 Pro x64
+version: 1.8.0.72.15
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -75,7 +75,31 @@ description: Toggle if on a 64bit OS only the 32bit JRE/JDK will be installed.
 values: ["False", "True"]
 default: ["False"]
 
+[ProductProperty]
+type: unicode
+name: 64bitonly
+multivalue: False
+editable: False
+description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
+values: ["False", "True"]
+default: ["False"]
+
+[ProductProperty]
+type: unicode
+name: updatebranch
+multivalue: False
+editable: False
+description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PCU)
+values: ["CPU", "PCU"]
+default: ["CPU"]
+
 [Changelog]
+java (1.8.0.72.15-4.2.4)
+  -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
+  * update
+  * add Product "updateBranch" choose between 8u71 and 8u72 (more info: )
+  * add Product Property "64bitonly" (default: False)
+
 java (1.8.0.66.17-4.2.3)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
   * update
@@ -187,6 +211,9 @@ java (7.0-7) testing; urgency=low
 java (7.0-4) testing; urgency=low
  -- Kevin Weis <kevinweis@gmx.de> 12:39 05.11.2012
   * Initial package
+
+
+
 
 
 
