@@ -8,8 +8,8 @@ type: localboot
 id: java
 name: Java
 description: 
-advice: Tested with Opsi 4.0.6.11, Winst 4.11.3.6 on Win 8.1 Pro x64
-version: 1.8.0.72.15
+advice: 
+version: 1.8.0.74.2
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -89,15 +89,19 @@ type: unicode
 name: updatebranch
 multivalue: False
 editable: False
-description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PCU)
-values: ["CPU", "PCU"]
+description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PSU)
+values: ["CPU", "PSU"]
 default: ["CPU"]
 
 [Changelog]
+java (1.8.0.74.2-4.2.4)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-03-14
+  * update
+
 java (1.8.0.72.15-4.2.4)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
   * update
-  * add Product "updateBranch" choose between 8u71 and 8u72 (more info: )
+  * add Product "updateBranch" choose between 8u71 and 8u72 (more info: http://www.oracle.com/technetwork/java/javase/cpu-psu-explained-2331472.html)
   * add Product Property "64bitonly" (default: False)
 
 java (1.8.0.66.17-4.2.3)
@@ -211,11 +215,3 @@ java (7.0-7) testing; urgency=low
 java (7.0-4) testing; urgency=low
  -- Kevin Weis <kevinweis@gmx.de> 12:39 05.11.2012
   * Initial package
-
-
-
-
-
-
-
-

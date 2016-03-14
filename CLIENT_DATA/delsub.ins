@@ -1,5 +1,7 @@
 Set $UninstallCommand$ = 'msiexec.exe /X ' + $Temp_Msi$ + ' /qb! REBOOT="ReallySuppress"'
 
+Message "Killing applications, which could use Java"
+
 KillTask "firefox.exe"
 KillTask "iexplore.exe"
 KillTask "jqs.exe"
@@ -7,6 +9,10 @@ KillTask "MicrosoftEdge.exe"
 KillTask "java.exe"
 KillTask "javaw.exe"
 KillTask "jp2launcher.exe"
+
+SleepSeconds 3
+
+Message "All applications killed, which could use Java"
 
 SetLogLevel = 6
 Message "Uninstall " + $ProductDisplayName$

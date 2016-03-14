@@ -63,7 +63,7 @@ Set $StringList_Java6$ = CreateStringList ( '10', '11', '12', '13', '14', '15', 
 Set $StringList_Java7$ = CreateStringList ( '00', '01', '02', '03', '04', '05', '06', '07', '09', '10', '11', '13', '15', '17', '21', '25', '40', '45', '51', '55', '60', '65', '67', '71', '72', '75', '76', '79', '80', '85', '91', '95' )
 
 ; https://en.wikipedia.org/wiki/Java_version_history#Java_8_updates
-Set $StringList_Java8$ = CreateStringList ( '00', '05', '11', '20', '25', '31', '40', '45', '51', '60', '65', '66', '71', '72' )
+Set $StringList_Java8$ = CreateStringList ( '00', '05', '11', '20', '25', '31', '40', '45', '51', '60', '65', '66', '71', '72', '73', '74' )
 
 ; Get last (Critical Patch Update) update version
 Set $UpdateVersion8$ = TakeString ( -2, $StringList_Java8$ )
@@ -130,10 +130,14 @@ ShowBitMap "%ScriptPath%\java.png" $ProductName$
 SetLogLevel = $DefaultLogLevel$
 
 Set $Temp_MicrosoftWindowsVersionRequiredName$ = "Vista"
-If $MicrosoftWindowsVersion$ < "6.0"
-	Message "Fatal error: Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$
-	LogError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$
-	IsFatalError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required For " + $ProductName$ + " " + $ProductProperty_Version$
+If $MicrosoftWindowsVersion$ = "10.0"
+	
+Else
+	If $MicrosoftWindowsVersion$ < "6.0"
+		Message "Fatal error: Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
+		LogError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
+		IsFatalError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required For " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
+	EndIf
 EndIf
 
 If Not ( HasMinimumSpace ( "%SystemDrive%", $MinimumSpace$ ) )
@@ -144,6 +148,8 @@ EndIf
 
 Sub "%ScriptPath%\check_uninstall.ins"
 
+Message "Killing applications, which could use Java"
+
 KillTask "firefox.exe"
 KillTask "iexplore.exe"
 KillTask "MicrosoftEdge.exe"
@@ -151,6 +157,10 @@ KillTask "jqs.exe"
 KillTask "java.exe"
 KillTask "javaw.exe"
 KillTask "jp2launcher.exe"
+
+SleepSeconds 3
+
+Message "All applications killed, which could use Java"
 
 ; #############################################################################################################################################
 ; ################################################################### Install x64 ###################################################################
