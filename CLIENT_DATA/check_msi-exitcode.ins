@@ -20,10 +20,7 @@ If ( $Temp_ExitCode$ = "0" Or $Temp_ExitCode$ ="1641" Or $Temp_ExitCode$ ="3010"
 		Comment ": " + $Temp_ExitCode$ + " ERROR_SUCCESS_REBOOT_REQUIRED A reboot is required to complete the install. This does Not include installs where the ForceReboot action is run. This error code Not available on Windows Installer version 1.0."
 		SetLogLevel = 1
 	EndIf
-
-
 Else
-
 
 	If ( $Temp_ExitCode$ = "3" )
 		SetLogLevel = 5

@@ -1,21 +1,17 @@
-====== Java (java_1.8.0.72.15-4.2.4) ======
+====== Java (java_1.8.0.77.3-4.2.4) ======
 **Feel free to contact me :)**
 
 Tested with Opsi 4.0.6.11\\
 Tested with Winst 4.11.3.6\\
 Tested with 8.1 Pro x64\\
-Tested with Java 6u10 - 8u72\\
+Tested with Java 6u10 - 8u77\\
 requiredWinstVersion >= 4.11.3\\
-By <Compilenix@compilenix.org> 2016-02-02\\
+By <Compilenix@compilenix.org> 2016-03-30\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.opsi | All in one - installable opsi package (~ 1.8 GiB)]] [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.opsi.asc | (detached pgp signature)]]\\
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.7z | MSI-Setup binary´s only (~ 905 MiB)]] [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4.7z.asc | (detached pgp signature)]]\\
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4_script.7z | Setup script´s only (~ 28 KiB)]] [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.72.15-4.2.4_script.7z.asc | (detached pgp signature)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.77.3-4.2.4.opsi | All in one - installable opsi package (~ 1.8 GiB)]]\\
+Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
-Checksum's: [[https://compilenix.org/public/opsi/localboot/java/ | sha1, sha256]] and the [[https://compilenix.org/public/opsi/localboot/java/ | (detached pgp signatures)]]\\
-
-Source: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]
-
+Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
 Check if you have the JCE extrension installed: [[https://compilenix.org/public/opsi/jceCheck.jar | jceCheck.jar]] [[https://compilenix.org/public/opsi/jceCheck.jar.asc | (detached pgp signature)]]\\
 
 All downloads are pgp signed with:\\
@@ -30,72 +26,70 @@ Download: my [[https://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax H
 
 <code>
 Tree:
-├── CLIENT_DATA
-│   ├── check_msi-exitcode.ins
-│   ├── check_uninstall.ins
-│   ├── delsub.ins
-│   ├── java.png
-│   ├── setup_data
-│   │   ├── jdk-8u71-windows-i586.exe
-│   │   ├── jdk-8u71-windows-x64.exe
-│   │   ├── jdk-8u72-windows-i586.exe
-│   │   ├── jdk-8u72-windows-x64.exe
-│   │   ├── jre-8u71-windows-i586.exe
-│   │   ├── jre-8u71-windows-x64.exe
-│   │   ├── jre-8u72-windows-i586.exe
-│   │   ├── jre-8u72-windows-x64.exe
-│   │   ├── License.txt
-│   │   ├── License.url
-│   │   └── msi
-│   │       ├── jdk1.8.0_71
-│   │       │   ├── jdk1.8.0_71.msi
-│   │       │   ├── sj180710.cab
-│   │       │   ├── ss180710.cab
-│   │       │   ├── st180710.cab
-│   │       │   └── sz180710.cab
-│   │       ├── jdk1.8.0_71_x64
-│   │       │   ├── jdk1.8.0_71.msi
-│   │       │   ├── sj180710.cab
-│   │       │   ├── ss180710.cab
-│   │       │   ├── st180710.cab
-│   │       │   └── sz180710.cab
-│   │       ├── jdk1.8.0_72
-│   │       │   ├── jdk1.8.0_72.msi
-│   │       │   ├── sj180720.cab
-│   │       │   ├── ss180720.cab
-│   │       │   ├── st180720.cab
-│   │       │   └── sz180720.cab
-│   │       ├── jdk1.8.0_72_x64
-│   │       │   ├── jdk1.8.0_72.msi
-│   │       │   ├── sj180720.cab
-│   │       │   ├── ss180720.cab
-│   │       │   ├── st180720.cab
-│   │       │   └── sz180720.cab
-│   │       ├── jre1.8.0_71
-│   │       │   └── jre1.8.0_71.msi
-│   │       ├── jre1.8.0_71_x64
-│   │       │   └── jre1.8.0_71.msi
-│   │       ├── jre1.8.0_72
-│   │       │   └── jre1.8.0_72.msi
-│   │       └── jre1.8.0_72_x64
-│   │           └── jre1.8.0_72.msi
-│   ├── setup.ins
-│   ├── Sub_UpdateVariables.ins
-│   ├── uninstall.ins
-│   └── UnlimitedJCEPolicy
-│       ├── JCE_PATCHED
-│       └── README.txt
-└── OPSI
-    ├── control
-    ├── postinst
-    └── preinst
+├── check_msi-exitcode.ins
+├── check_uninstall.ins
+├── delsub.ins
+├── java.png
+├── setup_data
+│   ├── jdk-8u73-windows-i586.exe
+│   ├── jdk-8u73-windows-x64.exe
+│   ├── jdk-8u77-windows-i586.exe
+│   ├── jdk-8u77-windows-x64.exe
+│   ├── jre-8u73-windows-i586.exe
+│   ├── jre-8u73-windows-x64.exe
+│   ├── jre-8u77-windows-i586.exe
+│   ├── jre-8u77-windows-x64.exe
+│   ├── License.txt
+│   ├── License.url
+│   └── msi
+│       ├── jdk1.8.0_73
+│       │   ├── jdk1.8.0_73.msi
+│       │   ├── sj180730.cab
+│       │   ├── ss180730.cab
+│       │   ├── st180730.cab
+│       │   └── sz180730.cab
+│       ├── jdk1.8.0_73_x64
+│       │   ├── jdk1.8.0_73.msi
+│       │   ├── sj180730.cab
+│       │   ├── ss180730.cab
+│       │   ├── st180730.cab
+│       │   └── sz180730.cab
+│       ├── jdk1.8.0_77
+│       │   ├── jdk1.8.0_77.msi
+│       │   ├── sj180770.cab
+│       │   ├── ss180770.cab
+│       │   ├── st180770.cab
+│       │   └── sz180770.cab
+│       ├── jdk1.8.0_77_x64
+│       │   ├── jdk1.8.0_77.msi
+│       │   ├── sj180770.cab
+│       │   ├── ss180770.cab
+│       │   ├── st180770.cab
+│       │   └── sz180770.cab
+│       ├── jre1.8.0_73
+│       │   └── jre1.8.0_73.msi
+│       ├── jre1.8.0_73_x64
+│       │   └── jre1.8.0_73.msi
+│       ├── jre1.8.0_77
+│       │   └── jre1.8.0_77.msi
+│       └── jre1.8.0_77_x64
+│           └── jre1.8.0_77.msi
+├── setup.ins
+├── Sub_UpdateVariables.ins
+├── uninstall.ins
+└── UnlimitedJCEPolicy
+    ├── JCE_PATCHED
+    ├── local_policy.jar
+    ├── README.txt
+    └── US_export_policy.jar
+
 
 </code>
 
 ==== What is does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.72, JDK of Java 1.7.0.0 until 1.8.0.72
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.77.3, JDK of Java 1.7.0.0 until 1.8.0.77.3
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -116,11 +110,9 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.72.15-4.2.4)
-  -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
+java (1.8.0.77.3-4.2.4)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-03-30
   * update
-  * add Product "updateBranch" choose between 8u71 and 8u72 (more info: http://www.oracle.com/technetwork/java/javase/cpu-psu-explained-2331472.html)
-  * add Product Property "64bitonly" (default: False)
 </code>
 
 ==== TODO ====
@@ -140,8 +132,8 @@ type: localboot
 id: java
 name: Java
 description: 
-advice: Tested with Opsi 4.0.6.11, Winst 4.11.3.6 on Win 8.1 Pro x64
-version: 1.8.0.72.15
+advice: 
+version: 1.8.0.77.3
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -221,11 +213,19 @@ type: unicode
 name: updatebranch
 multivalue: False
 editable: False
-description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PCU)
-values: ["CPU", "PCU"]
+description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PSU)
+values: ["CPU", "PSU"]
 default: ["CPU"]
 
 [Changelog]
+java (1.8.0.77.3-4.2.4)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-03-30
+  * update
+
+java (1.8.0.74.2-4.2.4)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-03-14
+  * update
+
 java (1.8.0.72.15-4.2.4)
   -- Kevin Weis <Compilenix@compilenix.org> 2015-10-26
   * update
