@@ -1,6 +1,6 @@
 Set $UninstallCommand$ = 'msiexec.exe /X ' + $Temp_Msi$ + ' /qb! REBOOT="ReallySuppress"'
 
-Message "Killing applications, which could use Java"
+Message "Terminate applications, which could use Java"
 
 KillTask "firefox.exe"
 KillTask "iexplore.exe"

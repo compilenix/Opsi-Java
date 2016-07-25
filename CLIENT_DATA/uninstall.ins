@@ -6,7 +6,7 @@ TraceMode = Off
 StayOnTop = False
 
 [Actions]
-RequiredWinstVersion >= "4.11.3"
+RequiredWinstVersion >= "4.11.5"
 Message "Prepare..."
 DefStringList $StringList_Java6$
 DefStringList $StringList_Java7$
@@ -44,12 +44,15 @@ DefVar $ProductProperty_PatchJCE$
 DefVar $ProductVersion$
 DefVar $RegistryPath$
 DefVar $RegistryPath_x64$
+DefVar $Updated_javapath$
 DefVar $Temp_ExitCode$
 DefVar $Temp_Message$
 DefVar $Temp_MicrosoftWindowsVersionRequired$
 DefVar $Temp_MicrosoftWindowsVersionRequiredName$
 DefVar $Temp_Msi$
 DefVar $Temp_MsiSuffix$
+DefVar $Temp_MsiPrefix_64$
+DefVar $Temp_MsiPrefix_86$
 DefVar $Temp_MsiDiff01$
 DefVar $UninstallCommand$
 DefVar $UpdateVersion8$
@@ -63,10 +66,7 @@ Set $StringList_Java6$ = CreateStringList ( '10', '11', '12', '13', '14', '15', 
 Set $StringList_Java7$ = CreateStringList ( '00', '01', '02', '03', '04', '05', '06', '07', '09', '10', '11', '13', '15', '17', '21', '25', '40', '45', '51', '55', '60', '65', '67', '71', '72', '75', '76', '79', '80', '85', '91', '95', '99', '101' )
 
 ; https://en.wikipedia.org/wiki/Java_version_history#Java_8_updates
-Set $StringList_Java8$ = CreateStringList ( '00', '05', '11', '20', '25', '31', '40', '45', '51', '60', '65', '66', '71', '72', '73', '74', '77', '91', '92' )
-
-; Get last (Critical Patch Update) update version
-Set $UpdateVersion8$ = TakeString ( -2, $StringList_Java8$ )
+Set $StringList_Java8$ = CreateStringList ( '00', '05', '11', '20', '25', '31', '40', '45', '51', '60', '65', '66', '71', '72', '73', '74', '77', '91', '92', '101', '102' )
 
 Set $DefaultLogLevel$ = "6"
 Set $IsUninstall$ = "False"
@@ -86,6 +86,7 @@ Set $ProductProperty_updateBranch$ = GetProductProperty ( "updateBranch" , "CPU"
 Set $RegistryPath$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\"
 Set $RegistryPath_x64$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\"
 Set $Temp_MsiSuffix$ = ""
+Set $Updated_javapath$ = "False"
 
 ; Reset changed variables
 Sub "%ScriptPath%\Sub_UpdateVariables.ins"

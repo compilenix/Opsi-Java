@@ -6,7 +6,7 @@ TraceMode = Off
 StayOnTop = False
 
 [Actions]
-RequiredWinstVersion >= "4.11.3"
+RequiredWinstVersion >= "4.11.5"
 Message "Prepare..."
 DefStringList $StringList_Java6$
 DefStringList $StringList_Java7$
@@ -44,12 +44,15 @@ DefVar $ProductProperty_PatchJCE$
 DefVar $ProductVersion$
 DefVar $RegistryPath$
 DefVar $RegistryPath_x64$
+DefVar $Updated_javapath$
 DefVar $Temp_ExitCode$
 DefVar $Temp_Message$
 DefVar $Temp_MicrosoftWindowsVersionRequired$
 DefVar $Temp_MicrosoftWindowsVersionRequiredName$
 DefVar $Temp_Msi$
 DefVar $Temp_MsiSuffix$
+DefVar $Temp_MsiPrefix_64$
+DefVar $Temp_MsiPrefix_86$
 DefVar $Temp_MsiDiff01$
 DefVar $UninstallCommand$
 DefVar $UpdateVersion8$
@@ -63,10 +66,7 @@ Set $StringList_Java6$ = CreateStringList ( '10', '11', '12', '13', '14', '15', 
 Set $StringList_Java7$ = CreateStringList ( '00', '01', '02', '03', '04', '05', '06', '07', '09', '10', '11', '13', '15', '17', '21', '25', '40', '45', '51', '55', '60', '65', '67', '71', '72', '75', '76', '79', '80', '85', '91', '95', '99', '101' )
 
 ; https://en.wikipedia.org/wiki/Java_version_history#Java_8_updates
-Set $StringList_Java8$ = CreateStringList ( '00', '05', '11', '20', '25', '31', '40', '45', '51', '60', '65', '66', '71', '72', '73', '74', '77', '91', '92' )
-
-; Get last (Critical Patch Update) update version
-Set $UpdateVersion8$ = TakeString ( -2, $StringList_Java8$ )
+Set $StringList_Java8$ = CreateStringList ( '00', '05', '11', '20', '25', '31', '40', '45', '51', '60', '65', '66', '71', '72', '73', '74', '77', '91', '92', '101', '102' )
 
 Set $DefaultLogLevel$ = "6"
 Set $IsUninstall$ = "False"
@@ -86,6 +86,7 @@ Set $ProductProperty_updateBranch$ = GetProductProperty ( "updateBranch" , "CPU"
 Set $RegistryPath$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\"
 Set $RegistryPath_x64$ = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\"
 Set $Temp_MsiSuffix$ = ""
+Set $Updated_javapath$ = "False"
 
 ; Reset changed variables
 Sub "%ScriptPath%\Sub_UpdateVariables.ins"
@@ -130,15 +131,10 @@ ShowBitMap "%ScriptPath%\java.png" $ProductName$
 SetLogLevel = $DefaultLogLevel$
 
 Set $Temp_MicrosoftWindowsVersionRequiredName$ = "Vista"
-; On Windows 10 the expression $MicrosoftWindowsVersion$ < "6.0" equals true
-If $MicrosoftWindowsVersion$ = "10.0"
-	
-Else
-	If $MicrosoftWindowsVersion$ < "6.0"
-		Message "Fatal error: Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
-		LogError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
-		IsFatalError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required For " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
-	EndIf
+If CompareDotSeparatedNumbers ( $MicrosoftWindowsVersion$, "<", "6.0" )
+	Message "Fatal error: Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
+	LogError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required for " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
+	IsFatalError "Minimum Windows " + $Temp_MicrosoftWindowsVersionRequiredName$ + " is required For " + $ProductName$ + " " + $ProductProperty_Version$ + " Version found: " + $MicrosoftWindowsVersion$
 EndIf
 
 If Not ( HasMinimumSpace ( "%SystemDrive%", $MinimumSpace$ ) )
@@ -149,7 +145,7 @@ EndIf
 
 Sub "%ScriptPath%\check_uninstall.ins"
 
-Message "Killing applications, which could use Java"
+Message "Terminate applications, which could use Java"
 
 KillTask "firefox.exe"
 KillTask "iexplore.exe"
@@ -164,7 +160,7 @@ SleepSeconds 3
 Message "All applications killed, which could use Java"
 
 ; #############################################################################################################################################
-; ################################################################### Install x64 ###################################################################
+; ################################################################### Install x64 #############################################################
 ; #############################################################################################################################################
 
 If $ProcessorArchitecture$ = "64 Bit System"
@@ -175,12 +171,16 @@ If $ProcessorArchitecture$ = "64 Bit System"
 			WinBatch_install_x64 /WaitOnClose
 			SetLogLevel = 1
 			Sub "%ScriptPath%\check_msi-exitcode.ins"
+			SetLogLevel = 6
+			Files_add_symlinks_in_javapath_x64
+			Set $Updated_javapath$ = "True"
+			SetLogLevel = 1
 		Else
 			Message "Fatal error: File not found: " + $PathSetup_Data$ + $PathSetup_Exe64$
 			LogError "File not found: " + $PathSetup_Data$ + $PathSetup_Exe64$
 			IsFatalError "File not found: " + $exePath$ + $exe_64$
 		EndIf
-		
+
 		If $ProductProperty_Java-Updater$ = "JAVAUPDATE=0"
 			Registry_disable_update /SysNative
 		EndIf
@@ -191,12 +191,18 @@ If $ProcessorArchitecture$ = "64 Bit System"
 		If FileExists ( $PathSetup_Data$ + $PathSetup_Exe32$ )
 			SetLogLevel = 6
 			WinBatch_install_x86 /WaitOnClose
-			SetLogLevel = $DefaultLogLevel$
+			SetLogLevel = 1
+			If $Updated_javapath$ = "False"
+				SetLogLevel = 6
+				Files_add_symlinks_in_javapath_x86
+				Set $Updated_javapath$ = "True"
+				SetLogLevel = 1
+			EndIf
 		Else
 			LogWarning "File not found: " + $exePath$ + $exe_32$
 		EndIf
 	EndIf
-	
+
 	If $ProductProperty_64bitOnly$ = "False"
 		; Installation of Java x86 at a x64 system envirement does "fail", because the java x86 installer seems NOT to be designed to be executed In a SYSTEM "user" conetxt.
 		Set $Temp_ExitCode$ = GetLastExitCode
@@ -206,11 +212,11 @@ If $ProcessorArchitecture$ = "64 Bit System"
 			Else
 				Comment "ExitCode = " + $Temp_ExitCode$ + ' ERROR_INSTALL_PACKAGE_OPEN_FAILED; This is what we expected, so its a "good" sign.'
 			EndIf
-				
+
 			SetLogLevel = 5
 			Files_delete_broken_x86_x64 /32Bit
 			SetLogLevel = 1
-			
+
 			Message "Install " + $ProductDisplayVersion_x32$ + " second try"
 			If $ProductProperty_VM-Type$ = "jdk"
 				If FileExists ( $PathSetup_Data$ + $PathSetup_Msi32$ )
@@ -218,13 +224,19 @@ If $ProcessorArchitecture$ = "64 Bit System"
 					WinBatch_install_x86_MSI /WaitOnClose
 					SetLogLevel = 1
 					Sub "%ScriptPath%\check_msi-exitcode.ins"
+					If $Updated_javapath$ = "False"
+						SetLogLevel = 6
+						Files_add_symlinks_in_javapath_x86
+						Set $Updated_javapath$ = "True"
+						SetLogLevel = 1
+					EndIf
 				Else
 					Message "Fatal error: File not found: " + $PathSetup_Data$ + $PathSetup_Msi32$
 					LogError "File not found: " + $PathSetup_Data$ + $PathSetup_Msi32$
 					IsFatalError "File not found: " + $exePath$ + $msi32$
 				EndIf
 			EndIf
-			
+
 			; Explicit install Java x86, because in this situation the Java Installer (MSI) only install the jdk And for some reason it does NOT install the jre :(
 			Set $PathSetup_Msi32$ = "msi\jre" + $ProductVersion$ + "\jre" + $ProductVersion$ + ".msi"
 			If FileExists ( $PathSetup_Data$ + $PathSetup_Msi32$ )
@@ -232,12 +244,18 @@ If $ProcessorArchitecture$ = "64 Bit System"
 				WinBatch_install_x86_MSI /WaitOnClose
 				SetLogLevel = 1
 				Sub "%ScriptPath%\check_msi-exitcode.ins"
+				If $Updated_javapath$ = "False"
+					SetLogLevel = 6
+					Files_add_symlinks_in_javapath_x86
+					Set $Updated_javapath$ = "True"
+					SetLogLevel = 1
+				EndIf
 			Else
 				Message "Fatal error: File not found: " + $PathSetup_Data$ + $PathSetup_Msi32$
 				LogError "File not found: " + $PathSetup_Data$ + $PathSetup_Msi32$
 				IsFatalError "File not found: " + $PathSetup_Data$ + $PathSetup_Msi32$
 			EndIf
-			
+
 			; Reset changed variables
 			Sub "%ScriptPath%\Sub_UpdateVariables.ins"
 		Else
@@ -250,7 +268,7 @@ If $ProcessorArchitecture$ = "64 Bit System"
 EndIf
 
 ; #############################################################################################################################################
-; ################################################################### Install x32 ###################################################################
+; ################################################################### Install x32 #############################################################
 ; #############################################################################################################################################
 
 If $ProcessorArchitecture$ = "x86 System" And $ProductProperty_64bitOnly$ = "False"
@@ -260,6 +278,12 @@ If $ProcessorArchitecture$ = "x86 System" And $ProductProperty_64bitOnly$ = "Fal
 		WinBatch_install_x86 /WaitOnClose
 		SetLogLevel = 1
 		Sub "%ScriptPath%\check_msi-exitcode.ins"
+		If $Updated_javapath$ = "False"
+			SetLogLevel = 6
+			Files_add_symlinks_in_javapath_x86
+			Set $Updated_javapath$ = "True"
+			SetLogLevel = 1
+		EndIf
 	Else
 		Message "Fatal error: File not found: " + $PathSetup_Data$ + $PathSetup_Exe32$
 		LogError "File not found: " + $PathSetup_Data$ + $PathSetup_Exe32$
@@ -301,13 +325,23 @@ If $ProductProperty_PatchJCE$ = "On"
 			LogWarning "NOT Patching JCE for x86 JRE and JDK; File not found: %ProgramFiles32Dir%\Java\jre" + $ProductVersion$ + "\bin\java.exe"
 		EndIf
 	EndIf
-	
+
 	Message "Install complete"
 Else
 	LogWarning "NOT Patching JCE for x86 JRE and JDK; decision by administrator"
 	Message "Install complete; NOT patched JCE, decision by administrator"
 EndIf
 
+
+[Files_add_symlinks_in_javapath_x64]
+symlink "%ProgramFiles64Dir%\Java\jre$ProductVersion$\bin\java.exe" C:\ProgramData\Oracle\Java\javapath\java.exe
+symlink "%ProgramFiles64Dir%\Java\jre$ProductVersion$\bin\javaw.exe" C:\ProgramData\Oracle\Java\javapath\javaw.exe
+symlink "%ProgramFiles64Dir%\Java\jre$ProductVersion$\bin\javaws.exe" C:\ProgramData\Oracle\Java\javapath\javaws.exe
+
+[Files_add_symlinks_in_javapath_x86]
+symlink "%ProgramFiles32Dir%\Java\jre$ProductVersion$\bin\java.exe" C:\ProgramData\Oracle\Java\javapath\java.exe
+symlink "%ProgramFiles32Dir%\Java\jre$ProductVersion$\bin\javaw.exe" C:\ProgramData\Oracle\Java\javapath\javaw.exe
+symlink "%ProgramFiles32Dir%\Java\jre$ProductVersion$\bin\javaws.exe" C:\ProgramData\Oracle\Java\javapath\javaws.exe
 
 [WinBatch_install_x86_MSI]
 msiexec /i "$PathSetup_Data$$PathSetup_Msi32$" $Arguments_Msi$

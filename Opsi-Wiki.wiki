@@ -1,18 +1,21 @@
-====== Java (java_1.8.0.92-4.2.4) ======
+====== Java (java_1.8.0.102-4.2.5) ======
 **Feel free to contact me :)**
 
-Tested with Opsi 4.0.6.11\\
-Tested with Winst 4.11.3.6\\
+Tested with Opsi 4.0.6.46\\
+Tested with Winst 4.11.5.20\\
+Tested with 10 Pro x64\\
 Tested with 8.1 Pro x64\\
-Tested with Java 6u10 - 8u92\\
-requiredWinstVersion >= 4.11.3\\
-By <Compilenix@compilenix.org> 2016-05-03\\
+Tested with 7 Pro x64\\
+Tested with 7 Pro x86\\
+Tested with Java 6u10 - 8u102\\
+requiredWinstVersion >= 4.11.5\\
+By <Compilenix@compilenix.org> 2016-07-25\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.92-4.2.4.opsi | All in one - installable opsi package (~ 1.8 GiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.102-4.2.5.opsi | All in one - installable opsi package (~ 1.8 GiB)]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
-Check if you have the JCE extrension installed: [[https://compilenix.org/public/opsi/jceCheck.jar | jceCheck.jar]] [[https://compilenix.org/public/opsi/jceCheck.jar.asc | (detached pgp signature)]]\\
+Check if you have the JCE installed: [[https://compilenix.org/public/opsi/jceCheck.jar | jceCheck.jar]] [[https://compilenix.org/public/opsi/jceCheck.jar.asc | (detached pgp signature)]]\\
 
 All downloads are pgp signed with:\\
 Compilenix <Compilenix@compilenix.org>\\
@@ -34,48 +37,48 @@ Tree:
 │   │   └── local_policy.jar
 │   ├── setup_data
 │   │   ├── msi
-│   │   │   ├── jdk1.8.0_91
-│   │   │   │   ├── jdk1.8.0_91.msi
-│   │   │   │   ├── sj180910.cab
-│   │   │   │   ├── ss180910.cab
-│   │   │   │   ├── st180910.cab
-│   │   │   │   └── sz180910.cab
-│   │   │   ├── jdk1.8.0_91_x64
-│   │   │   │   ├── jdk1.8.0_91.msi
-│   │   │   │   ├── sj180910.cab
-│   │   │   │   ├── ss180910.cab
-│   │   │   │   ├── st180910.cab
-│   │   │   │   └── sz180910.cab
-│   │   │   ├── jdk1.8.0_92
-│   │   │   │   ├── jdk1.8.0_92.msi
-│   │   │   │   ├── sj180920.cab
-│   │   │   │   ├── ss180920.cab
-│   │   │   │   ├── st180920.cab
-│   │   │   │   └── sz180920.cab
-│   │   │   ├── jdk1.8.0_92_x64
-│   │   │   │   ├── jdk1.8.0_92.msi
-│   │   │   │   ├── sj180920.cab
-│   │   │   │   ├── ss180920.cab
-│   │   │   │   ├── st180920.cab
-│   │   │   │   └── sz180920.cab
-│   │   │   ├── jre1.8.0_91
-│   │   │   │   └── jre1.8.0_91.msi
-│   │   │   ├── jre1.8.0_91_x64
-│   │   │   │   └── jre1.8.0_91.msi
-│   │   │   ├── jre1.8.0_92
-│   │   │   │   └── jre1.8.0_92.msi
-│   │   │   └── jre1.8.0_92_x64
-│   │   │       └── jre1.8.0_92.msi
+│   │   │   ├── jdk1.8.0_101
+│   │   │   │   ├── jdk1.8.0_101.msi
+│   │   │   │   ├── sj180101.cab
+│   │   │   │   ├── ss180101.cab
+│   │   │   │   ├── st180101.cab
+│   │   │   │   └── sz180101.cab
+│   │   │   ├── jdk1.8.0_101_x64
+│   │   │   │   ├── jdk1.8.0_10164.msi
+│   │   │   │   ├── sj180101.cab
+│   │   │   │   ├── ss180101.cab
+│   │   │   │   ├── st180101.cab
+│   │   │   │   └── sz180101.cab
+│   │   │   ├── jdk1.8.0_102
+│   │   │   │   ├── jdk1.8.0_102.msi
+│   │   │   │   ├── sj180102.cab
+│   │   │   │   ├── ss180102.cab
+│   │   │   │   ├── st180102.cab
+│   │   │   │   └── sz180102.cab
+│   │   │   ├── jdk1.8.0_102_x64
+│   │   │   │   ├── jdk1.8.0_10264.msi
+│   │   │   │   ├── sj180102.cab
+│   │   │   │   ├── ss180102.cab
+│   │   │   │   ├── st180102.cab
+│   │   │   │   └── sz180102.cab
+│   │   │   ├── jre1.8.0_101
+│   │   │   │   └── jre1.8.0_101.msi
+│   │   │   ├── jre1.8.0_101_x64
+│   │   │   │   └── jre1.8.0_10164.msi
+│   │   │   ├── jre1.8.0_102
+│   │   │   │   └── jre1.8.0_102.msi
+│   │   │   └── jre1.8.0_102_x64
+│   │   │       └── jre1.8.0_10264.msi
 │   │   ├── License.txt
 │   │   ├── License.url
-│   │   ├── jdk-8u91-windows-i586.exe
-│   │   ├── jdk-8u91-windows-x64.exe
-│   │   ├── jdk-8u92-windows-i586.exe
-│   │   ├── jdk-8u92-windows-x64.exe
-│   │   ├── jre-8u91-windows-i586.exe
-│   │   ├── jre-8u91-windows-x64.exe
-│   │   ├── jre-8u92-windows-i586.exe
-│   │   └── jre-8u92-windows-x64.exe
+│   │   ├── jdk-8u101-windows-i586.exe
+│   │   ├── jdk-8u101-windows-x64.exe
+│   │   ├── jdk-8u102-windows-i586.exe
+│   │   ├── jdk-8u102-windows-x64.exe
+│   │   ├── jre-8u101-windows-i586.exe
+│   │   ├── jre-8u101-windows-x64.exe
+│   │   ├── jre-8u102-windows-i586.exe
+│   │   └── jre-8u102-windows-x64.exe
 │   ├── Sub_UpdateVariables.ins
 │   ├── check_msi-exitcode.ins
 │   ├── check_uninstall.ins
@@ -99,7 +102,7 @@ Tree:
 ==== What is does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.92, JDK of Java 1.7.0.0 until 1.8.0.92
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.102, JDK of Java 1.7.0.0 until 1.8.0.102
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -120,9 +123,10 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.92-4.2.4)
-  -- Kevin Weis <Compilenix@compilenix.org> 2016-05-03
+java (1.8.0.102-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-07-25
   * update
+  * update/create symbolic links at C:\ProgramData\Oracle\Java\javapath\. prefering x64 jre if possible.
 </code>
 
 ==== TODO ====
@@ -133,7 +137,7 @@ java (1.8.0.92-4.2.4)
 ===== control =====
 <code winst control.txt>
 [Package]
-version: 4.2.4
+version: 4.2.5
 depends: 
 incremental: False
 
@@ -143,7 +147,7 @@ id: java
 name: Java
 description: 
 advice: 
-version: 1.8.0.92
+version: 1.8.0.102
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -228,6 +232,11 @@ values: ["CPU", "PSU"]
 default: ["CPU"]
 
 [Changelog]
+java (1.8.0.102-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-07-25
+  * update
+  * update/create symbolic links at C:\ProgramData\Oracle\Java\javapath\. prefering x64 jre if possible.
+
 java (1.8.0.92-4.2.4)
   -- Kevin Weis <Compilenix@compilenix.org> 2016-05-03
   * update

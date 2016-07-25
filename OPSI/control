@@ -1,5 +1,5 @@
 [Package]
-version: 4.2.4
+version: 4.2.5
 depends: 
 incremental: False
 
@@ -9,7 +9,7 @@ id: java
 name: Java
 description: 
 advice: 
-version: 1.8.0.92
+version: 1.8.0.102
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -94,6 +94,11 @@ values: ["CPU", "PSU"]
 default: ["CPU"]
 
 [Changelog]
+java (1.8.0.102-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-07-25
+  * update
+  * update/create symbolic links at C:\ProgramData\Oracle\Java\javapath\. prefering x64 jre if possible.
+
 java (1.8.0.92-4.2.4)
   -- Kevin Weis <Compilenix@compilenix.org> 2016-05-03
   * update
