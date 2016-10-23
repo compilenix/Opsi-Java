@@ -1,17 +1,18 @@
-====== Java (java_1.8.0.102-4.2.5) ======
+====== Java (java_1.8.0.112-4.2.5) ======
 **Feel free to contact me :)**
 
-Tested with Opsi 4.0.6.46\\
+Tested with Opsi 4.0.7.17\\
 Tested with Winst 4.11.5.20\\
+Tested with Server 2016 x64\\
 Tested with 10 Pro x64\\
 Tested with 8.1 Pro x64\\
 Tested with 7 Pro x64\\
 Tested with 7 Pro x86\\
-Tested with Java 6u10 - 8u102\\
+Tested with Java 6u10 - 8u112\\
 requiredWinstVersion >= 4.11.5\\
-By <Compilenix@compilenix.org> 2016-07-25\\
+By <Compilenix@compilenix.org> 2016-10-23\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.102-4.2.5.opsi | All in one - installable opsi package (~ 1.8 GiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.112-4.2.5.opsi | All in one - installable opsi package (~ 1.8 GiB)]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -37,48 +38,48 @@ Tree:
 │   │   └── local_policy.jar
 │   ├── setup_data
 │   │   ├── msi
-│   │   │   ├── jdk1.8.0_101
-│   │   │   │   ├── jdk1.8.0_101.msi
-│   │   │   │   ├── sj180101.cab
-│   │   │   │   ├── ss180101.cab
-│   │   │   │   ├── st180101.cab
-│   │   │   │   └── sz180101.cab
-│   │   │   ├── jdk1.8.0_101_x64
-│   │   │   │   ├── jdk1.8.0_10164.msi
-│   │   │   │   ├── sj180101.cab
-│   │   │   │   ├── ss180101.cab
-│   │   │   │   ├── st180101.cab
-│   │   │   │   └── sz180101.cab
-│   │   │   ├── jdk1.8.0_102
-│   │   │   │   ├── jdk1.8.0_102.msi
-│   │   │   │   ├── sj180102.cab
-│   │   │   │   ├── ss180102.cab
-│   │   │   │   ├── st180102.cab
-│   │   │   │   └── sz180102.cab
-│   │   │   ├── jdk1.8.0_102_x64
-│   │   │   │   ├── jdk1.8.0_10264.msi
-│   │   │   │   ├── sj180102.cab
-│   │   │   │   ├── ss180102.cab
-│   │   │   │   ├── st180102.cab
-│   │   │   │   └── sz180102.cab
-│   │   │   ├── jre1.8.0_101
-│   │   │   │   └── jre1.8.0_101.msi
-│   │   │   ├── jre1.8.0_101_x64
-│   │   │   │   └── jre1.8.0_10164.msi
-│   │   │   ├── jre1.8.0_102
-│   │   │   │   └── jre1.8.0_102.msi
-│   │   │   └── jre1.8.0_102_x64
-│   │   │       └── jre1.8.0_10264.msi
+│   │   │   ├── jdk1.8.0_111
+│   │   │   │   ├── jdk1.8.0_111.msi
+│   │   │   │   ├── sj180111.cab
+│   │   │   │   ├── ss180111.cab
+│   │   │   │   ├── st180111.cab
+│   │   │   │   └── sz180111.cab
+│   │   │   ├── jdk1.8.0_111_x64
+│   │   │   │   ├── jdk1.8.0_11164.msi
+│   │   │   │   ├── sj180111.cab
+│   │   │   │   ├── ss180111.cab
+│   │   │   │   ├── st180111.cab
+│   │   │   │   └── sz180111.cab
+│   │   │   ├── jdk1.8.0_112
+│   │   │   │   ├── jdk1.8.0_112.msi
+│   │   │   │   ├── sj180112.cab
+│   │   │   │   ├── ss180112.cab
+│   │   │   │   ├── st180112.cab
+│   │   │   │   └── sz180112.cab
+│   │   │   ├── jdk1.8.0_112_x64
+│   │   │   │   ├── jdk1.8.0_11264.msi
+│   │   │   │   ├── sj180112.cab
+│   │   │   │   ├── ss180112.cab
+│   │   │   │   ├── st180112.cab
+│   │   │   │   └── sz180112.cab
+│   │   │   ├── jre1.8.0_111
+│   │   │   │   └── jre1.8.0_111.msi
+│   │   │   ├── jre1.8.0_111_x64
+│   │   │   │   └── jre1.8.0_11164.msi
+│   │   │   ├── jre1.8.0_112
+│   │   │   │   └── jre1.8.0_112.msi
+│   │   │   └── jre1.8.0_112_x64
+│   │   │       └── jre1.8.0_11264.msi
 │   │   ├── License.txt
 │   │   ├── License.url
-│   │   ├── jdk-8u101-windows-i586.exe
-│   │   ├── jdk-8u101-windows-x64.exe
-│   │   ├── jdk-8u102-windows-i586.exe
-│   │   ├── jdk-8u102-windows-x64.exe
-│   │   ├── jre-8u101-windows-i586.exe
-│   │   ├── jre-8u101-windows-x64.exe
-│   │   ├── jre-8u102-windows-i586.exe
-│   │   └── jre-8u102-windows-x64.exe
+│   │   ├── jdk-8u111-windows-i586.exe
+│   │   ├── jdk-8u111-windows-x64.exe
+│   │   ├── jdk-8u112-windows-i586.exe
+│   │   ├── jdk-8u112-windows-x64.exe
+│   │   ├── jre-8u111-windows-i586.exe
+│   │   ├── jre-8u111-windows-x64.exe
+│   │   ├── jre-8u112-windows-i586.exe
+│   │   └── jre-8u112-windows-x64.exe
 │   ├── Sub_UpdateVariables.ins
 │   ├── check_msi-exitcode.ins
 │   ├── check_uninstall.ins
@@ -90,7 +91,9 @@ Tree:
 │   ├── control
 │   ├── postinst
 │   └── preinst
+├── LICENSE
 ├── Opsi-Wiki.wiki
+├── README.md
 ├── jceCheck.jar
 ├── sha256sum.txt
 ├── sha256sum.txt.asc
@@ -102,7 +105,7 @@ Tree:
 ==== What is does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.102, JDK of Java 1.7.0.0 until 1.8.0.102
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.112, JDK of Java 1.7.0.0 until 1.8.0.112
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -123,10 +126,9 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.102-4.2.5)
-  -- Kevin Weis <Compilenix@compilenix.org> 2016-07-25
+java (1.8.0.112-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-10-23
   * update
-  * update/create symbolic links at C:\ProgramData\Oracle\Java\javapath\. prefering x64 jre if possible.
 </code>
 
 ==== TODO ====
@@ -138,7 +140,7 @@ java (1.8.0.102-4.2.5)
 <code winst control.txt>
 [Package]
 version: 4.2.5
-depends: 
+depends:
 incremental: False
 
 [Product]
@@ -147,7 +149,7 @@ id: java
 name: Java
 description: 
 advice: 
-version: 1.8.0.102
+version: 1.8.0.112
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -232,6 +234,10 @@ values: ["CPU", "PSU"]
 default: ["CPU"]
 
 [Changelog]
+java (1.8.0.112-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2016-10-23
+  * update
+
 java (1.8.0.102-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2016-07-25
   * update
