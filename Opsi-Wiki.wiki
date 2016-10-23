@@ -12,7 +12,7 @@ Tested with Java 6u10 - 8u112\\
 requiredWinstVersion >= 4.11.5\\
 By <Compilenix@compilenix.org> 2016-10-23\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.112-4.2.5.opsi | All in one - installable opsi package (~ 1.8 GiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.112-4.2.5.opsi | All in one - installable opsi package (~ 1.9 GiB)]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -26,7 +26,8 @@ Key-ID: E763633D\\
 Fingerprint: CC6047FA5B4449F28940636910B6666EE763633D\\
 https://compilenix.org/public/certificates/pgp/compilenix%40compilenix.org%20%280xE763633D%29.asc
 
-Download: my [[https://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]
+Download: my [[https://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]\\
+Download: my [[https://compilenix.org/public/opsi/winst-4.11.6.vsix | Visual Studio Code Syntax Highlighting]]
 
 <code>
 Tree:
@@ -102,7 +103,7 @@ Tree:
 
 </code>
 
-==== What is does, and what not ====
+==== What it does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
   - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.112, JDK of Java 1.7.0.0 until 1.8.0.112
