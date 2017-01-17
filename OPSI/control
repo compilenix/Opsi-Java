@@ -9,7 +9,7 @@ id: java
 name: Java
 description: 
 advice: 
-version: 1.8.0.112
+version: 1.8.0.121
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -94,6 +94,10 @@ values: ["CPU", "PSU"]
 default: ["CPU"]
 
 [Changelog]
+java (1.8.0.121-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-01-17
+  * update
+
 java (1.8.0.112-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2016-10-23
   * update
