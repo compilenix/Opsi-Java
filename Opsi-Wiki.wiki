@@ -1,4 +1,4 @@
-====== Java (java_1.8.0.121-4.2.5) ======
+====== Java (java_1.8.0.131-4.2.5) ======
 **Feel free to contact me :)**
 
 Tested with Opsi 4.0.7.17\\
@@ -8,11 +8,11 @@ Tested with 10 Pro x64\\
 Tested with 8.1 Pro x64\\
 Tested with 7 Pro x64\\
 Tested with 7 Pro x86\\
-Tested with Java 6u10 - 8u121\\
+Tested with Java 6u10 - 8u131\\
 requiredWinstVersion >= 4.11.5\\
-By <Compilenix@compilenix.org> 2017-01-17\\
+By <Compilenix@compilenix.org> 2017-04-24\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.121-4.2.5.opsi | All in one - installable opsi package (~ 980 MiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.131-4.2.5.opsi | All in one - installable opsi package (~ 980 MiB)]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -39,28 +39,28 @@ Tree:
 │   │   └── local_policy.jar
 │   ├── setup_data
 │   │   ├── msi
-│   │   │   ├── jdk1.8.0_121
-│   │   │   │   ├── jdk1.8.0_121.msi
-│   │   │   │   ├── sj180121.cab
-│   │   │   │   ├── ss180121.cab
-│   │   │   │   ├── st180121.cab
-│   │   │   │   └── sz180121.cab
-│   │   │   ├── jdk1.8.0_121_x64
-│   │   │   │   ├── jdk1.8.0_12164.msi
-│   │   │   │   ├── sj180121.cab
-│   │   │   │   ├── ss180121.cab
-│   │   │   │   ├── st180121.cab
-│   │   │   │   └── sz180121.cab
-│   │   │   ├── jre1.8.0_121
-│   │   │   │   └── jre1.8.0_121.msi
-│   │   │   └── jre1.8.0_121_x64
-│   │   │       └── jre1.8.0_12164.msi
+│   │   │   ├── jdk1.8.0_131
+│   │   │   │   ├── jdk1.8.0_131.msi
+│   │   │   │   ├── sj180131.cab
+│   │   │   │   ├── ss180131.cab
+│   │   │   │   ├── st180131.cab
+│   │   │   │   └── sz180131.cab
+│   │   │   ├── jdk1.8.0_131_x64
+│   │   │   │   ├── jdk1.8.0_13164.msi
+│   │   │   │   ├── sj180131.cab
+│   │   │   │   ├── ss180131.cab
+│   │   │   │   ├── st180131.cab
+│   │   │   │   └── sz180131.cab
+│   │   │   ├── jre1.8.0_131
+│   │   │   │   └── jre1.8.0_131.msi
+│   │   │   └── jre1.8.0_131_x64
+│   │   │       └── jre1.8.0_13164.msi
 │   │   ├── License.txt
 │   │   ├── License.url
-│   │   ├── jdk-8u121-windows-i586.exe
-│   │   ├── jdk-8u121-windows-x64.exe
-│   │   ├── jre-8u121-windows-i586.exe
-│   │   └── jre-8u121-windows-x64.exe
+│   │   ├── jdk-8u131-windows-i586.exe
+│   │   ├── jdk-8u131-windows-x64.exe
+│   │   ├── jre-8u131-windows-i586.exe
+│   │   └── jre-8u131-windows-x64.exe
 │   ├── Sub_UpdateVariables.ins
 │   ├── check_msi-exitcode.ins
 │   ├── check_uninstall.ins
@@ -86,7 +86,7 @@ Tree:
 ==== What it does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.121, JDK of Java 1.7.0.0 until 1.8.0.121
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.131, JDK of Java 1.7.0.0 until 1.8.0.131
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -107,8 +107,8 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.121-4.2.5)
-  -- Kevin Weis <Compilenix@compilenix.org> 2017-01-17
+java (1.8.0.131-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-04-24
   * update
 </code>
 
@@ -121,16 +121,16 @@ java (1.8.0.121-4.2.5)
 <code winst control.txt>
 [Package]
 version: 4.2.5
-depends:
+depends: 
 incremental: False
 
 [Product]
 type: localboot
 id: java
 name: Java
-description: 
-advice: 
-version: 1.8.0.121
+description:
+advice:
+version: 1.8.0.131
 priority: -95
 licenseRequired: False
 productClasses: 
@@ -215,6 +215,10 @@ values: ["CPU", "PSU"]
 default: ["CPU"]
 
 [Changelog]
+java (1.8.0.131-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-04-24
+  * update
+
 java (1.8.0.121-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2017-01-17
   * update
