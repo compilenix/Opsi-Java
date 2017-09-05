@@ -1,6 +1,6 @@
 [Package]
 version: 4.2.5
-depends: 
+depends:
 incremental: False
 
 [Product]
@@ -9,17 +9,17 @@ id: java
 name: Java
 description:
 advice:
-version: 1.8.0.141
+version: 1.8.0.144
 priority: -95
 licenseRequired: False
-productClasses: 
+productClasses:
 setupScript: setup.ins
 uninstallScript: uninstall.ins
-updateScript: 
-alwaysScript: 
-onceScript: 
-customScript: 
-userLoginScript: 
+updateScript:
+alwaysScript:
+onceScript:
+customScript:
+userLoginScript:
 
 [ProductProperty]
 type: unicode
@@ -84,16 +84,11 @@ description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
 values: ["False", "True"]
 default: ["False"]
 
-[ProductProperty]
-type: unicode
-name: updatebranch
-multivalue: False
-editable: False
-description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PSU)
-values: ["CPU", "PSU"]
-default: ["CPU"]
-
 [Changelog]
+java (1.8.0.144-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-09-05
+  * update
+
 java (1.8.0.141-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2017-07-20
   * update

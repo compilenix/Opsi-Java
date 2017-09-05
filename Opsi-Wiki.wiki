@@ -1,18 +1,19 @@
-====== Java (java_1.8.0.141-4.2.5) ======
+====== Java (java_1.8.0.144-4.2.5) ======
 **Feel free to contact me :)**
 
-Tested with Opsi 4.0.7.17\\
-Tested with Winst 4.11.5.20\\
+Tested with Debian 8\\
+Tested with Opsi 4.0.7.45\\
+Tested with Winst 4.11.6.12\\
 Tested with Server 2016 x64\\
-Tested with 10 Pro x64\\
+Tested with 10 Enterprise x64\\
 Tested with 8.1 Pro x64\\
 Tested with 7 Pro x64\\
 Tested with 7 Pro x86\\
-Tested with Java 6u10 - 8u141\\
+Tested with Java 6u10 - 8u144\\
 requiredWinstVersion >= 4.11.5\\
-By <Compilenix@compilenix.org> 2017-07-20\\
+By <Compilenix@compilenix.org> 2017-09-05\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.141-4.2.5.opsi | All in one - installable opsi package (~ 1 GiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.144-4.2.5.opsi | All in one - installable opsi package (~ 1 GiB)]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -27,7 +28,7 @@ Fingerprint: CC6047FA5B4449F28940636910B6666EE763633D\\
 https://compilenix.org/public/certificates/pgp/compilenix%40compilenix.org%20%280xE763633D%29.asc
 
 Download: my [[https://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]\\
-Download: my [[https://compilenix.org/public/opsi/winst-4.11.6.vsix | Visual Studio Code Syntax Highlighting]]
+Download: my [[https://marketplace.visualstudio.com/items?itemName=Compilenix.winst | Visual Studio Code Syntax Highlighting]]
 
 <code>
 Tree:
@@ -39,28 +40,28 @@ Tree:
 │   │   └── local_policy.jar
 │   ├── setup_data
 │   │   ├── msi
-│   │   │   ├── jdk1.8.0_141
-│   │   │   │   ├── jdk1.8.0_141.msi
-│   │   │   │   ├── sj180141.cab
-│   │   │   │   ├── ss180141.cab
-│   │   │   │   ├── st180141.cab
-│   │   │   │   └── sz180141.cab
-│   │   │   ├── jdk1.8.0_141_x64
-│   │   │   │   ├── jdk1.8.0_14164.msi
-│   │   │   │   ├── sj180141.cab
-│   │   │   │   ├── ss180141.cab
-│   │   │   │   ├── st180141.cab
-│   │   │   │   └── sz180141.cab
-│   │   │   ├── jre1.8.0_141
-│   │   │   │   └── jre1.8.0_141.msi
-│   │   │   └── jre1.8.0_141_x64
-│   │   │       └── jre1.8.0_14164.msi
+│   │   │   ├── jdk1.8.0_144
+│   │   │   │   ├── jdk1.8.0_144.msi
+│   │   │   │   ├── sj180144.cab
+│   │   │   │   ├── ss180144.cab
+│   │   │   │   ├── st180144.cab
+│   │   │   │   └── sz180144.cab
+│   │   │   ├── jdk1.8.0_144_x64
+│   │   │   │   ├── jdk1.8.0_14464.msi
+│   │   │   │   ├── sj180144.cab
+│   │   │   │   ├── ss180144.cab
+│   │   │   │   ├── st180144.cab
+│   │   │   │   └── sz180144.cab
+│   │   │   ├── jre1.8.0_144
+│   │   │   │   └── jre1.8.0_144.msi
+│   │   │   └── jre1.8.0_144_x64
+│   │   │       └── jre1.8.0_14464.msi
 │   │   ├── License.txt
 │   │   ├── License.url
-│   │   ├── jdk-8u141-windows-i586.exe
-│   │   ├── jdk-8u141-windows-x64.exe
-│   │   ├── jre-8u141-windows-i586.exe
-│   │   └── jre-8u141-windows-x64.exe
+│   │   ├── jdk-8u144-windows-i586.exe
+│   │   ├── jdk-8u144-windows-x64.exe
+│   │   ├── jre-8u144-windows-i586.exe
+│   │   └── jre-8u144-windows-x64.exe
 │   ├── Sub_UpdateVariables.ins
 │   ├── check_msi-exitcode.ins
 │   ├── check_uninstall.ins
@@ -68,25 +69,17 @@ Tree:
 │   ├── java.png
 │   ├── setup.ins
 │   └── uninstall.ins
-├── OPSI
-│   ├── control
-│   ├── postinst
-│   └── preinst
-├── LICENSE
-├── Opsi-Wiki.wiki
-├── README.md
-├── jceCheck.jar
-├── sha256sum.txt
-├── sha256sum.txt.asc
-├── shasum.sh
-└── shasum_verify.sh
+└── OPSI
+    ├── control
+    ├── postinst
+    └── preinst
 
 </code>
 
 ==== What it does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.141, JDK of Java 1.7.0.0 until 1.8.0.141
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.144, JDK of Java 1.7.0.0 until 1.8.0.144
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -107,8 +100,8 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.141-4.2.5)
-  -- Kevin Weis <Compilenix@compilenix.org> 2017-07-20
+java (1.8.0.144-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-09-05
   * update
 </code>
 
@@ -121,7 +114,7 @@ java (1.8.0.141-4.2.5)
 <code winst control.txt>
 [Package]
 version: 4.2.5
-depends: 
+depends:
 incremental: False
 
 [Product]
@@ -130,17 +123,17 @@ id: java
 name: Java
 description:
 advice:
-version: 1.8.0.141
+version: 1.8.0.144
 priority: -95
 licenseRequired: False
-productClasses: 
+productClasses:
 setupScript: setup.ins
 uninstallScript: uninstall.ins
-updateScript: 
-alwaysScript: 
-onceScript: 
-customScript: 
-userLoginScript: 
+updateScript:
+alwaysScript:
+onceScript:
+customScript:
+userLoginScript:
 
 [ProductProperty]
 type: unicode
@@ -203,18 +196,12 @@ multivalue: False
 editable: False
 description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
 values: ["False", "True"]
-default: ["False"]
-
-[ProductProperty]
-type: unicode
-name: updatebranch
-multivalue: False
-editable: False
-description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PSU)
-values: ["CPU", "PSU"]
-default: ["CPU"]
 
 [Changelog]
+java (1.8.0.144-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-09-05
+  * update
+
 java (1.8.0.141-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2017-07-20
   * update
