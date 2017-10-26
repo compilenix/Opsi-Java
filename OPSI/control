@@ -9,7 +9,7 @@ id: java
 name: Java
 description:
 advice:
-version: 1.8.0.144
+version: 1.8.0.152
 priority: -95
 licenseRequired: False
 productClasses:
@@ -85,6 +85,10 @@ values: ["False", "True"]
 default: ["False"]
 
 [Changelog]
+java (1.8.0.152-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-10-26
+  * update
+
 java (1.8.0.144-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2017-09-05
   * update

@@ -1,4 +1,4 @@
-====== Java (java_1.8.0.144-4.2.5) ======
+====== Java (java_1.8.0.151-4.2.5) ======
 **Feel free to contact me :)**
 
 Tested with Debian 8\\
@@ -9,11 +9,11 @@ Tested with 10 Enterprise x64\\
 Tested with 8.1 Pro x64\\
 Tested with 7 Pro x64\\
 Tested with 7 Pro x86\\
-Tested with Java 6u10 - 8u144\\
+Tested with Java 6u10 - 8u151\\
 requiredWinstVersion >= 4.11.5\\
-By <Compilenix@compilenix.org> 2017-09-05\\
+By <Compilenix@compilenix.org> 2017-10-26\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.144-4.2.5.opsi | All in one - installable opsi package (~ 1 GiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.151-4.2.5.opsi | All in one - installable opsi package (~ 2 GiB)]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -40,28 +40,48 @@ Tree:
 │   │   └── local_policy.jar
 │   ├── setup_data
 │   │   ├── msi
-│   │   │   ├── jdk1.8.0_144
-│   │   │   │   ├── jdk1.8.0_144.msi
-│   │   │   │   ├── sj180144.cab
-│   │   │   │   ├── ss180144.cab
-│   │   │   │   ├── st180144.cab
-│   │   │   │   └── sz180144.cab
-│   │   │   ├── jdk1.8.0_144_x64
-│   │   │   │   ├── jdk1.8.0_14464.msi
-│   │   │   │   ├── sj180144.cab
-│   │   │   │   ├── ss180144.cab
-│   │   │   │   ├── st180144.cab
-│   │   │   │   └── sz180144.cab
-│   │   │   ├── jre1.8.0_144
-│   │   │   │   └── jre1.8.0_144.msi
-│   │   │   └── jre1.8.0_144_x64
-│   │   │       └── jre1.8.0_14464.msi
+│   │   │   ├── jdk1.8.0_151
+│   │   │   │   ├── jdk1.8.0_151.msi
+│   │   │   │   ├── sj180151.cab
+│   │   │   │   ├── ss180151.cab
+│   │   │   │   ├── st180151.cab
+│   │   │   │   └── sz180151.cab
+│   │   │   ├── jdk1.8.0_151_x64
+│   │   │   │   ├── jdk1.8.0_15164.msi
+│   │   │   │   ├── sj180151.cab
+│   │   │   │   ├── ss180151.cab
+│   │   │   │   ├── st180151.cab
+│   │   │   │   └── sz180151.cab
+│   │   │   ├── jdk1.8.0_152
+│   │   │   │   ├── jdk1.8.0_152.msi
+│   │   │   │   ├── sj180152.cab
+│   │   │   │   ├── ss180152.cab
+│   │   │   │   ├── st180152.cab
+│   │   │   │   └── sz180152.cab
+│   │   │   ├── jdk1.8.0_152_x64
+│   │   │   │   ├── jdk1.8.0_15264.msi
+│   │   │   │   ├── sj180152.cab
+│   │   │   │   ├── ss180152.cab
+│   │   │   │   ├── st180152.cab
+│   │   │   │   └── sz180152.cab
+│   │   │   ├── jre1.8.0_151
+│   │   │   │   └── jre1.8.0_151.msi
+│   │   │   ├── jre1.8.0_151_x64
+│   │   │   │   └── jre1.8.0_15164.msi
+│   │   │   ├── jre1.8.0_152
+│   │   │   │   └── jre1.8.0_152.msi
+│   │   │   └── jre1.8.0_152_x64
+│   │   │       └── jre1.8.0_15264.msi
 │   │   ├── License.txt
 │   │   ├── License.url
-│   │   ├── jdk-8u144-windows-i586.exe
-│   │   ├── jdk-8u144-windows-x64.exe
-│   │   ├── jre-8u144-windows-i586.exe
-│   │   └── jre-8u144-windows-x64.exe
+│   │   ├── jdk-8u151-windows-i586.exe
+│   │   ├── jdk-8u151-windows-x64.exe
+│   │   ├── jdk-8u152-windows-i586.exe
+│   │   ├── jdk-8u152-windows-x64.exe
+│   │   ├── jre-8u151-windows-i586.exe
+│   │   ├── jre-8u151-windows-x64.exe
+│   │   ├── jre-8u152-windows-i586.exe
+│   │   └── jre-8u152-windows-x64.exe
 │   ├── Sub_UpdateVariables.ins
 │   ├── check_msi-exitcode.ins
 │   ├── check_uninstall.ins
@@ -79,7 +99,7 @@ Tree:
 ==== What it does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.144, JDK of Java 1.7.0.0 until 1.8.0.144
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.151, JDK of Java 1.7.0.0 until 1.8.0.151
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -100,8 +120,8 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.144-4.2.5)
-  -- Kevin Weis <Compilenix@compilenix.org> 2017-09-05
+java (1.8.0.152-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-10-26
   * update
 </code>
 
@@ -123,7 +143,7 @@ id: java
 name: Java
 description:
 advice:
-version: 1.8.0.144
+version: 1.8.0.151
 priority: -95
 licenseRequired: False
 productClasses:
@@ -198,6 +218,10 @@ description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
 values: ["False", "True"]
 
 [Changelog]
+java (1.8.0.152-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2017-10-26
+  * update
+
 java (1.8.0.144-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2017-09-05
   * update
