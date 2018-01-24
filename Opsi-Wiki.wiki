@@ -1,7 +1,7 @@
 ====== Java (java_1.8.0.162-4.2.5) ======
 **Feel free to contact me :)**
 
-Tested with Debian 8\\
+Tested with Debian 9\\
 Tested with Opsi 4.0.7.45\\
 Tested with Winst 4.11.6.12\\
 Tested with Server 2016 x64\\
@@ -13,7 +13,7 @@ Tested with Java 6u10 - 8u162\\
 requiredWinstVersion >= 4.11.5\\
 By <Compilenix@compilenix.org> 2018-01-14\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.162-4.2.5.opsi | All in one - installable opsi package (~ 2 GiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.162-4.2.5.opsi | All in one - installable opsi package]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -29,72 +29,6 @@ https://compilenix.org/public/certificates/pgp/compilenix%40compilenix.org%20%28
 
 Download: my [[https://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]\\
 Download: my [[https://marketplace.visualstudio.com/items?itemName=Compilenix.winst | Visual Studio Code Syntax Highlighting]]
-
-<code>
-Tree:
-├── CLIENT_DATA
-│   ├── UnlimitedJCEPolicy
-│   │   ├── JCE_PATCHED
-│   │   ├── README.txt
-│   │   ├── US_export_policy.jar
-│   │   └── local_policy.jar
-│   ├── setup_data
-│   │   ├── msi
-│   │   │   ├── jdk1.8.0_151
-│   │   │   │   ├── jdk1.8.0_151.msi
-│   │   │   │   ├── sj180151.cab
-│   │   │   │   ├── ss180151.cab
-│   │   │   │   ├── st180151.cab
-│   │   │   │   └── sz180151.cab
-│   │   │   ├── jdk1.8.0_151_x64
-│   │   │   │   ├── jdk1.8.0_15164.msi
-│   │   │   │   ├── sj180151.cab
-│   │   │   │   ├── ss180151.cab
-│   │   │   │   ├── st180151.cab
-│   │   │   │   └── sz180151.cab
-│   │   │   ├── jdk1.8.0_152
-│   │   │   │   ├── jdk1.8.0_152.msi
-│   │   │   │   ├── sj180152.cab
-│   │   │   │   ├── ss180152.cab
-│   │   │   │   ├── st180152.cab
-│   │   │   │   └── sz180152.cab
-│   │   │   ├── jdk1.8.0_152_x64
-│   │   │   │   ├── jdk1.8.0_15264.msi
-│   │   │   │   ├── sj180152.cab
-│   │   │   │   ├── ss180152.cab
-│   │   │   │   ├── st180152.cab
-│   │   │   │   └── sz180152.cab
-│   │   │   ├── jre1.8.0_151
-│   │   │   │   └── jre1.8.0_151.msi
-│   │   │   ├── jre1.8.0_151_x64
-│   │   │   │   └── jre1.8.0_15164.msi
-│   │   │   ├── jre1.8.0_152
-│   │   │   │   └── jre1.8.0_152.msi
-│   │   │   └── jre1.8.0_152_x64
-│   │   │       └── jre1.8.0_15264.msi
-│   │   ├── License.txt
-│   │   ├── License.url
-│   │   ├── jdk-8u151-windows-i586.exe
-│   │   ├── jdk-8u151-windows-x64.exe
-│   │   ├── jdk-8u152-windows-i586.exe
-│   │   ├── jdk-8u152-windows-x64.exe
-│   │   ├── jre-8u151-windows-i586.exe
-│   │   ├── jre-8u151-windows-x64.exe
-│   │   ├── jre-8u152-windows-i586.exe
-│   │   └── jre-8u152-windows-x64.exe
-│   ├── Sub_UpdateVariables.ins
-│   ├── check_msi-exitcode.ins
-│   ├── check_uninstall.ins
-│   ├── delsub.ins
-│   ├── java.png
-│   ├── setup.ins
-│   └── uninstall.ins
-└── OPSI
-    ├── control
-    ├── postinst
-    └── preinst
-
-</code>
 
 ==== What it does, and what not ====
  It Does:
@@ -118,13 +52,6 @@ But on a x64 System the Java installer want to extract the MSI package into the 
 There is no error-reporting or handling by the Java (EXE) installer done, but msiexec.exe does report an 1619 (PACKAGE_OPEN_FAILED) exitcode.\\
 
 This happends only on x64 System`s. My package will ever prefer of using the EXE installer, the MSI files were only called in a fallback case!\\
-
-==== Change Log ====
-<code>
-java (1.8.0.162-4.2.5)
-  -- Kevin Weis <Compilenix@compilenix.org> 2018-01-24
-  * update
-</code>
 
 ==== TODO ====
   - Add feature; Install X.509 (root) Certificates into the Java Certificate chain.
