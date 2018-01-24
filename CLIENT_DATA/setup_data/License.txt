@@ -17,32 +17,36 @@ WHICH THE SOFTWARE IS CONTAINED.
 
 1. DEFINITIONS. "Software" means the software identified above in binary form
 that you selected for download, install or use (in the version You selected for
-download, install or use) from Oracle or its authorized licensees, any other
-machine readable materials (including, but not limited to, libraries, source
-files, header files, and data files), any updates or error corrections provided
-by Oracle, and any user manuals, programming guides and other documentation
-provided to you by Oracle under this Agreement. "General Purpose Desktop
-Computers and Servers" means computers, including desktop and laptop computers,
-or servers, used for general computing functions under end user control (such
-as but not specifically limited to email, general purpose Internet browsing,
-and office suite productivity tools). The use of Software in systems and
-solutions that provide dedicated functionality (other than as mentioned above)
-or designed for use in embedded or function-specific software applications, for
-example but not limited to: Software embedded in or bundled with industrial
-control systems, wireless mobile telephones, wireless handheld devices, kiosks,
-TV/STB, Blu-ray Disc devices, telematics and network control switching
-equipment, printers and storage management systems, and other related systems
-are excluded from this definition and not licensed under this Agreement.
-"Programs" means (a) Java technology applets and applications intended to run
-on the Java Platform, Standard Edition platform on Java-enabled General Purpose
-Desktop Computers and Servers; and (b) JavaFX technology applications intended
-to run on the JavaFX Runtime on JavaFX-enabled General Purpose Desktop
-Computers and Servers. “Commercial Features” means those features
-identified in Table 1-1 (Commercial Features In Java SE Product Editions) of
-the Java SE documentation accessible at
+download, install or use) from Oracle or its authorized licensees and/or those
+portions of such software produced by jlink as output using a Program’s code,
+when such output is in unmodified form in combination, and for sole use with,
+that Program, as well as any other machine readable materials (including, but
+not limited to, libraries, source files, header files, and data files), any
+updates or error corrections provided by Oracle, and any user manuals,
+programming guides and other documentation provided to you by Oracle under this
+Agreement. The Java Linker (jlink) is available with Java 9 and later versions.
+ "General Purpose Desktop Computers and Servers" means computers, including
+desktop and laptop computers, or servers, used for general computing functions
+under end user control (such as but not specifically limited to email, general
+purpose Internet browsing, and office suite productivity tools). The use of
+Software in systems and solutions that provide dedicated functionality (other
+than as mentioned above) or designed for use in embedded or function-specific
+software applications, for example but not limited to: Software embedded in or
+bundled with industrial control systems, wireless mobile telephones, wireless
+handheld devices, kiosks, TV/STB, Blu-ray Disc devices, telematics and network
+control switching equipment, printers and storage management systems, and other
+related systems are excluded from this definition and not licensed under this
+Agreement. "Programs" means (a) Java technology applets and applications
+intended to run on the Java Platform, Standard Edition platform on Java-enabled
+General Purpose Desktop Computers and Servers; and (b) JavaFX technology
+applications intended to run on the JavaFX Runtime on JavaFX-enabled General
+Purpose Desktop Computers and Servers. “Java SE LIUM” means the Licensing
+Information User Manual – Oracle Java SE and Oracle Java Embedded Products
+Document accessible at
 http://www.oracle.com/technetwork/java/javase/documentation/index.html.
-“README File” means the README file for the Software accessible at
-http://www.oracle.com/technetwork/java/javase/documentation/index.html.
+“Commercial Features” means those features that are identified as such in
+the Java SE LIUM under the “Description of Product Editions and Permitted
+Features” section.
 
 2. LICENSE TO USE. Subject to the terms and conditions of this Agreement
 including, but not limited to, the Java Technology Restrictions of the
@@ -98,12 +102,12 @@ or indirectly, in violation of these laws, or will be used for any purpose
 prohibited by these laws including, without limitation, nuclear, chemical, or
 biological weapons proliferation.
 
-8. TRADEMARKS AND LOGOS. You acknowledge and agree as between you
-and Oracle that Oracle owns the ORACLE and JAVA trademarks and all ORACLE- and
-JAVA-related trademarks, service marks, logos and other brand
-designations ("Oracle Marks"), and you agree to comply with the Third
-Party Usage Guidelines for Oracle Trademarks currently located at
-http://www.oracle.com/us/legal/third-party-trademarks/index.html . Any use you
+8. TRADEMARKS AND LOGOS. You acknowledge and agree as between you and Oracle
+that Oracle owns the ORACLE and JAVA trademarks and all ORACLE- and
+JAVA-related trademarks, service marks, logos and other brand designations
+("Oracle Marks"), and you agree to comply with the Third Party Usage Guidelines
+for Oracle Trademarks currently located at
+http://www.oracle.com/us/legal/third-party-trademarks/index.html. Any use you
 make of the Oracle Marks inures to Oracle's benefit.
 
 9. U.S. GOVERNMENT LICENSE RIGHTS. If Software is being acquired by or on
@@ -149,14 +153,14 @@ Agreement, You must obtain a separate license from Oracle.
 
 B. SOFTWARE INTERNAL USE FOR DEVELOPMENT LICENSE GRANT. Subject to the terms
 and conditions of this Agreement and restrictions and exceptions set forth in
-the README File incorporated herein by reference, including, but not limited to
-the Java Technology Restrictions of these Supplemental Terms, Oracle grants you
-a non-exclusive, non-transferable, limited license without fees to reproduce
-internally and use internally the Software complete and unmodified for the
-purpose of designing, developing, and testing your Programs.
+the Java SE LIUM incorporated herein by reference, including, but not limited
+to the Java Technology Restrictions of these Supplemental Terms, Oracle grants
+you a non-exclusive, non-transferable, limited license without fees to
+reproduce internally and use internally the Software complete and unmodified
+for the purpose of designing, developing, and testing your Programs.
 
 C. LICENSE TO DISTRIBUTE SOFTWARE. Subject to the terms and conditions of this
-Agreement and restrictions and exceptions set forth in the README File,
+Agreement and restrictions and exceptions set forth in the Java SE LIUM,
 including, but not limited to the Java Technology Restrictions and Limitations
 on Redistribution of these Supplemental Terms, Oracle grants you a
 non-exclusive, non-transferable, limited license without fees to reproduce and
@@ -178,28 +182,28 @@ and/or Software. The license set forth in this Section C does not extend to the
 Software identified in Section G.
 
 D. LICENSE TO DISTRIBUTE REDISTRIBUTABLES. Subject to the terms and conditions
-of this Agreement and restrictions and exceptions set forth in the README File,
-including but not limited to the Java Technology Restrictions and Limitations
-on Redistribution of these Supplemental Terms, Oracle grants you a
+of this Agreement and restrictions and exceptions set forth in the Java SE
+LIUM, including but not limited to the Java Technology Restrictions and
+Limitations on Redistribution of these Supplemental Terms, Oracle grants you a
 non-exclusive, non-transferable, limited license without fees to reproduce and
-distribute those files specifically identified as redistributable in the README
-File ("Redistributables") provided that: (i) you distribute the
+distribute those files specifically identified as redistributable in the Java
+SE LIUM ("Redistributables") provided that: (i) you distribute the
 Redistributables complete and unmodified, and only bundled as part of Programs,
 (ii) the Programs add significant and primary functionality to the
 Redistributables, (iii) you do not distribute additional software intended to
 supersede any component(s) of the Redistributables (unless otherwise specified
-in the applicable README File), (iv) you do not remove or alter any proprietary
-legends or notices contained in or on the Redistributables, (v) you only
-distribute the Redistributables pursuant to a license agreement that: (a) is a
-complete, unmodified reproduction of this Agreement; or (b) protects Oracle's
-interests consistent with the terms contained in the Agreement and includes the
-notice set forth in Section H, (vi) you agree to defend and indemnify Oracle
-and its licensors from and against any damages, costs, liabilities, settlement
-amounts and/or expenses (including attorneys' fees) incurred in connection with
-any claim, lawsuit or action by any third party that arises or results from the
-use or distribution of any and all Programs and/or Software. The license set
-forth in this Section D does not extend to the Software identified in Section
-G.
+in the applicable Java SE LIUM), (iv) you do not remove or alter any
+proprietary legends or notices contained in or on the Redistributables, (v) you
+only distribute the Redistributables pursuant to a license agreement that: (a)
+is a complete, unmodified reproduction of this Agreement; or (b) protects
+Oracle's interests consistent with the terms contained in the Agreement and
+includes the notice set forth in Section H, (vi) you agree to defend and
+indemnify Oracle and its licensors from and against any damages, costs,
+liabilities, settlement amounts and/or expenses (including attorneys' fees)
+incurred in connection with any claim, lawsuit or action by any third party
+that arises or results from the use or distribution of any and all Programs
+and/or Software. The license set forth in this Section D does not extend to the
+Software identified in Section G.
 
 E. DISTRIBUTION BY PUBLISHERS. This section pertains to your distribution of
 the JavaTM SE Development Kit Software (“JDK”) with your printed book or
@@ -257,11 +261,10 @@ the Software will see the notice:
 
 Use of the Commercial Features for any commercial or production purpose
 requires a separate license from Oracle. “Commercial Features” means those
-features identified Table 1-1 (Commercial Features In Java SE Product Editions)
-of the Java SE documentation accessible at
-http://www.oracle.com/technetwork/java/javase/documentation/index.html
-
- 
+features that are identified as such in the Licensing Information User Manual
+– Oracle Java SE and Oracle Java Embedded Products Document, accessible at
+http://www.oracle.com/technetwork/java/javase/documentation/index.html, under
+the “Description of Product Editions and Permitted Features” section.
 
 I. SOURCE CODE. Software may contain source code that, unless expressly
 licensed for other purposes, is provided solely for reference purposes pursuant
@@ -269,14 +272,12 @@ to the terms of this Agreement. Source code may not be redistributed unless
 expressly provided for in this Agreement.
 
 J. THIRD PARTY CODE. Additional copyright notices and license terms applicable
-to portions of the Software are set forth in the THIRDPARTYLICENSEREADME file
-accessible at
+to portions of the Software are set forth in the Java SE LIUM accessible at
 http://www.oracle.com/technetwork/java/javase/documentation/index.html. In
 addition to any terms and conditions of any third party opensource/freeware
-license identified in the THIRDPARTYLICENSEREADME file, the disclaimer of
-warranty and limitation of liability provisions in paragraphs 4 and 5 of the
-Binary Code License Agreement shall apply to all Software in this
-distribution.
+license identified in the Java SE LIUM, the disclaimer of warranty and
+limitation of liability provisions in paragraphs 4 and 5 of the Binary Code
+License Agreement shall apply to all Software in this distribution.
 
 K. TERMINATION FOR INFRINGEMENT. Either party may terminate this Agreement
 immediately should any Software become, or in either party's opinion be likely
@@ -295,4 +296,4 @@ For inquiries please contact: Oracle America, Inc., 500 Oracle Parkway,
 
 Redwood Shores, California 94065, USA.
 
-Last updated 02 April 2013
+Last updated 21 September 2017
