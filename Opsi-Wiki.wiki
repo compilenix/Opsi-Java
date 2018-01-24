@@ -1,4 +1,4 @@
-====== Java (java_1.8.0.151-4.2.5) ======
+====== Java (java_1.8.0.162-4.2.5) ======
 **Feel free to contact me :)**
 
 Tested with Debian 8\\
@@ -9,11 +9,11 @@ Tested with 10 Enterprise x64\\
 Tested with 8.1 Pro x64\\
 Tested with 7 Pro x64\\
 Tested with 7 Pro x86\\
-Tested with Java 6u10 - 8u151\\
+Tested with Java 6u10 - 8u162\\
 requiredWinstVersion >= 4.11.5\\
-By <Compilenix@compilenix.org> 2017-10-26\\
+By <Compilenix@compilenix.org> 2018-01-14\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.151-4.2.5.opsi | All in one - installable opsi package (~ 2 GiB)]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.162-4.2.5.opsi | All in one - installable opsi package (~ 2 GiB)]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -99,7 +99,7 @@ Tree:
 ==== What it does, and what not ====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.151, JDK of Java 1.7.0.0 until 1.8.0.151
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.151, JDK of Java 1.7.0.0 until 1.8.0.162
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -107,6 +107,7 @@ Tree:
  It Does NOT:
   - Uninstall Java versions older then 1.6.0.10, because in update 10 was a new installer dropped which uses an other schema of GUID´s at the Windows Registry
   - Uninstall Java JDK`s older then 1.7.0.0
+  - Uninstall Java 9
 
 ==== Notes ====
 The package includes the MSI installer for the JRE and JDK x86, because if you want to install Java JRE/JDK x86 on a x64 System the EXE installer will "crash" if it was called in a SYSTEM user context. Calling it by hand will work and my package is designed to manage both cases.
@@ -120,8 +121,8 @@ This happends only on x64 System`s. My package will ever prefer of using the EXE
 
 ==== Change Log ====
 <code>
-java (1.8.0.152-4.2.5)
-  -- Kevin Weis <Compilenix@compilenix.org> 2017-10-26
+java (1.8.0.162-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2018-01-24
   * update
 </code>
 
@@ -143,7 +144,7 @@ id: java
 name: Java
 description:
 advice:
-version: 1.8.0.151
+version: 1.8.0.162
 priority: -95
 licenseRequired: False
 productClasses:
@@ -218,6 +219,10 @@ description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
 values: ["False", "True"]
 
 [Changelog]
+java (1.8.0.162-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2018-01-24
+  * update
+
 java (1.8.0.152-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2017-10-26
   * update
