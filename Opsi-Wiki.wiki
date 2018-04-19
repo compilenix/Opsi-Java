@@ -1,4 +1,4 @@
-====== Java (java_1.8.0.162-4.2.5) ======
+====== Java 8 ======
 **Feel free to contact me :)**
 
 Tested with Debian 9\\
@@ -9,11 +9,9 @@ Tested with 10 Enterprise x64\\
 Tested with 8.1 Pro x64\\
 Tested with 7 Pro x64\\
 Tested with 7 Pro x86\\
-Tested with Java 6u10 - 8u162\\
 requiredWinstVersion >= 4.11.5\\
-By <Compilenix@compilenix.org> 2018-01-14\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.162-4.2.5.opsi | All in one - installable opsi package]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.172-4.2.5.opsi | All in one - installable opsi package]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -30,10 +28,10 @@ https://compilenix.org/public/certificates/pgp/compilenix%40compilenix.org%20%28
 Download: my [[https://compilenix.org/public/opsi/Winst.xml | Notepad++ Syntax Highlighting]]\\
 Download: my [[https://marketplace.visualstudio.com/items?itemName=Compilenix.winst | Visual Studio Code Syntax Highlighting]]
 
-==== What it does, and what not ====
+===== What it does, and what not =====
  It Does:
   - Handle install: x64 and x86, JRE and JDK
-  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.151, JDK of Java 1.7.0.0 until 1.8.0.162
+  - Handle uninstall: x64 and x86, JRE of Java 1.6.0.10 until 1.8.0.151, JDK of Java 1.7.0.0 until current version of Java 8
   - Installation of Java 8
   - Add the JCE Patch to every Java installation; see: [[https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html | JCE Documentation]]
   - Use the check_msi-exitcode script from "Der-Matze": [[userspace:check_msi-exitcode]] (modified)
@@ -41,9 +39,9 @@ Download: my [[https://marketplace.visualstudio.com/items?itemName=Compilenix.wi
  It Does NOT:
   - Uninstall Java versions older then 1.6.0.10, because in update 10 was a new installer dropped which uses an other schema of GUID´s at the Windows Registry
   - Uninstall Java JDK`s older then 1.7.0.0
-  - Uninstall Java 9
+  - Un-/Install Java 9
 
-==== Notes ====
+===== Notes =====
 The package includes the MSI installer for the JRE and JDK x86, because if you want to install Java JRE/JDK x86 on a x64 System the EXE installer will "crash" if it was called in a SYSTEM user context. Calling it by hand will work and my package is designed to manage both cases.
 
 It "crashes" in a SYSTEM user environment, because the x86 installer of Java would exteact a MSI package on a x86 System into "C:\Windows\**System32**\config\systemprofile\AppData\LocalLow\Sun\Java" and call a MSI file and will install Java.\\
@@ -53,36 +51,13 @@ There is no error-reporting or handling by the Java (EXE) installer done, but ms
 
 This happends only on x64 System`s. My package will ever prefer of using the EXE installer, the MSI files were only called in a fallback case!\\
 
-==== TODO ====
+===== TODO =====
   - Add feature; Install X.509 (root) Certificates into the Java Certificate chain.
   - Change uninstall procedure using WMCI or Powershell, to avoid generating wrong uninstall strings. (Thanks Andreas)
   - Nothing else at the moment.. If you have any suggestions, let me know :)
 
-===== control =====
-<code winst control.txt>
-[Package]
-version: 4.2.5
-depends:
-incremental: False
-
-[Product]
-type: localboot
-id: java
-name: Java
-description:
-advice:
-version: 1.8.0.162
-priority: -95
-licenseRequired: False
-productClasses:
-setupScript: setup.ins
-uninstallScript: uninstall.ins
-updateScript:
-alwaysScript:
-onceScript:
-customScript:
-userLoginScript:
-
+===== Product Properties =====
+<code>
 [ProductProperty]
 type: unicode
 name: vm-type
@@ -145,7 +120,23 @@ editable: False
 description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
 values: ["False", "True"]
 
-[Changelog]
+[ProductProperty]
+type: unicode
+name: updatebranch
+multivalue: False
+editable: False
+description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PSU)
+values: ["CPU", "PSU"]
+default: ["CPU"]
+
+</code>
+
+===== Changelog =====
+<code control.txt>
+java (1.8.0.172-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2018-04-18
+  * update
+
 java (1.8.0.162-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2018-01-24
   * update

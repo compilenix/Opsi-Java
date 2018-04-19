@@ -9,7 +9,7 @@ id: java
 name: Java
 description:
 advice:
-version: 1.8.0.162
+version: 1.8.0.172
 priority: -95
 licenseRequired: False
 productClasses:
@@ -84,7 +84,20 @@ description: Toggle if on a 64bit OS only the 64bit JRE/JDK will be installed.
 values: ["False", "True"]
 default: ["False"]
 
+[ProductProperty]
+type: unicode
+name: updatebranch
+multivalue: False
+editable: False
+description: Toggle between Critical Patch Update (CPU) and Patch Set Update (PSU)
+values: ["CPU", "PSU"]
+default: ["CPU"]
+
 [Changelog]
+java (1.8.0.172-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2018-04-18
+  * update
+
 java (1.8.0.162-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2018-01-14
   * update
