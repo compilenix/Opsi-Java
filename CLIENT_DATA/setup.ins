@@ -159,6 +159,10 @@ SleepSeconds 3
 
 Message "All applications killed, which could use Java"
 
+ExitOnError = False
+WinBatch_create_javapath
+ExitOnError = True
+
 ; #############################################################################################################################################
 ; ################################################################### Install x64 #############################################################
 ; #############################################################################################################################################
@@ -172,7 +176,9 @@ If $ProcessorArchitecture$ = "64 Bit System"
 			SetLogLevel = 1
 			Sub "%ScriptPath%\check_msi-exitcode.ins"
 			SetLogLevel = 6
+			ExitOnError = False
 			Files_add_symlinks_in_javapath_x64
+			ExitOnError = True
 			Set $Updated_javapath$ = "True"
 			SetLogLevel = 1
 		Else
@@ -194,7 +200,9 @@ If $ProcessorArchitecture$ = "64 Bit System"
 			SetLogLevel = 1
 			If $Updated_javapath$ = "False"
 				SetLogLevel = 6
+				ExitOnError = False
 				Files_add_symlinks_in_javapath_x86
+				ExitOnError = True
 				Set $Updated_javapath$ = "True"
 				SetLogLevel = 1
 			EndIf
@@ -226,7 +234,9 @@ If $ProcessorArchitecture$ = "64 Bit System"
 					Sub "%ScriptPath%\check_msi-exitcode.ins"
 					If $Updated_javapath$ = "False"
 						SetLogLevel = 6
+						ExitOnError = False
 						Files_add_symlinks_in_javapath_x86
+						ExitOnError = True
 						Set $Updated_javapath$ = "True"
 						SetLogLevel = 1
 					EndIf
@@ -246,7 +256,9 @@ If $ProcessorArchitecture$ = "64 Bit System"
 				Sub "%ScriptPath%\check_msi-exitcode.ins"
 				If $Updated_javapath$ = "False"
 					SetLogLevel = 6
+					ExitOnError = False
 					Files_add_symlinks_in_javapath_x86
+					ExitOnError = True
 					Set $Updated_javapath$ = "True"
 					SetLogLevel = 1
 				EndIf
@@ -280,7 +292,9 @@ If $ProcessorArchitecture$ = "x86 System" And $ProductProperty_64bitOnly$ = "Fal
 		Sub "%ScriptPath%\check_msi-exitcode.ins"
 		If $Updated_javapath$ = "False"
 			SetLogLevel = 6
+			ExitOnError = False
 			Files_add_symlinks_in_javapath_x86
+			ExitOnError = True
 			Set $Updated_javapath$ = "True"
 			SetLogLevel = 1
 		EndIf
@@ -332,6 +346,9 @@ Else
 	Message "Install complete; NOT patched JCE, decision by administrator"
 EndIf
 
+
+[WinBatch_create_javapath]
+mkdir "C:\ProgramData\Oracle\Java\javapath"
 
 [Files_add_symlinks_in_javapath_x64]
 symlink "%ProgramFiles64Dir%\Java\jre$ProductVersion$\bin\java.exe" C:\ProgramData\Oracle\Java\javapath\java.exe
