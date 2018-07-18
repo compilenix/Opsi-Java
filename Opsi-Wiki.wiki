@@ -11,7 +11,7 @@ Tested with 7 Pro x64\\
 Tested with 7 Pro x86\\
 requiredWinstVersion >= 4.11.5\\
 
-Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.172-4.2.5.opsi | All in one - installable opsi package]]\\
+Download: [[https://compilenix.org/public/opsi/localboot/java/java_1.8.0.181-4.2.5.opsi | All in one - installable opsi package]]\\
 Checksum's and detached pgp signatures: https://compilenix.org/public/opsi/localboot/java/
 
 Source Code: [[https://git.compilenix.org/Compilenix/opsi-java | Code repository]]\\
@@ -133,6 +133,10 @@ default: ["CPU"]
 
 ===== Changelog =====
 <code control.txt>
+java (1.8.0.181-4.2.5)
+  -- Kevin Weis <Compilenix@compilenix.org> 2018-07-18
+  * update
+
 java (1.8.0.172-4.2.5)
   -- Kevin Weis <Compilenix@compilenix.org> 2018-04-18
   * update
